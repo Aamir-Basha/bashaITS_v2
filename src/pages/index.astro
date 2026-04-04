@@ -1,0 +1,495 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { actions } from "astro:actions";
+
+export const prerender = false;
+
+const result = Astro.getActionResult(actions.contact);
+---
+
+<BaseLayout
+  title="Basha IT Solutions | Professional IT solutions without unnecessary complexity"
+  description="Networks, apps, websites, and SaaS solutions built to solve real business problems."
+>
+  <section class="container-main pt-20 pb-16 sm:pt-28">
+    <div class="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+      <div>
+        <p
+          class="mb-4 inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70"
+        >
+          Modern solutions for businesses and individuals
+        </p>
+
+        <h1
+          class="max-w-4xl text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl"
+        >
+          Professional IT solutions without unnecessary complexity
+        </h1>
+
+        <p class="mt-6 max-w-2xl text-lg leading-8 text-white/70">
+          I help clients with network solutions, websites, app development, and
+          SaaS platforms — built to solve real problems with clear, practical
+          execution.
+        </p>
+
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+          <a href="/contact" class="btn-primary">Start Your Project</a>
+          <a href="/services" class="btn-secondary">Explore Services</a>
+        </div>
+
+        <div class="mt-10 grid gap-4 sm:grid-cols-3">
+          <div class="glass rounded-2xl p-5">
+            <p class="text-2xl font-bold">Networks</p>
+            <p class="mt-2 text-sm text-white/60">
+              Setup, optimization, support
+            </p>
+          </div>
+          <div class="glass rounded-2xl p-5">
+            <p class="text-2xl font-bold">Apps & Web</p>
+            <p class="mt-2 text-sm text-white/60">Modern digital solutions</p>
+          </div>
+          <div class="glass rounded-2xl p-5">
+            <p class="text-2xl font-bold">SaaS</p>
+            <p class="mt-2 text-sm text-white/60">
+              Scalable tools and platforms
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass rounded-[2rem] p-6 sm:p-8">
+        <div class="rounded-[1.5rem] border border-white/10 bg-black/20 p-6">
+          <div class="mb-6 flex items-center justify-between">
+            <div>
+              <p class="text-sm text-white/50">Featured Capabilities</p>
+              <h2 class="mt-1 text-2xl font-bold">
+                Built for trust, speed, and clarity
+              </h2>
+            </div>
+            <div
+              class="rounded-2xl bg-white/10 px-3 py-2 text-xs text-white/70"
+            >
+              IT Solutions
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <h3 class="font-semibold">Network Setup & Optimization</h3>
+              <p class="mt-1 text-sm text-white/60">
+                Practical support for routers, Wi-Fi, local infrastructure, and
+                connectivity issues.
+              </p>
+            </div>
+
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <h3 class="font-semibold">Website & App Development</h3>
+              <p class="mt-1 text-sm text-white/60">
+                Clean, modern, responsive experiences that help businesses look
+                professional.
+              </p>
+            </div>
+
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <h3 class="font-semibold">SaaS & Custom Platforms</h3>
+              <p class="mt-1 text-sm text-white/60">
+                Tailored systems, portals, dashboards, and product ideas brought
+                to life.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container-main py-16">
+    <div class="max-w-2xl">
+      <p class="mb-4 text-sm uppercase tracking-[0.18em] text-white/50">
+        What I Offer
+      </p>
+      <h2 class="section-title">
+        Services built around real business and technical needs
+      </h2>
+      <p class="section-copy mt-4 text-lg">
+        Whether you need a modern website, help with networking, a custom app,
+        or a SaaS idea brought to life, the focus is always on practical, useful
+        execution.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+      <article class="glass rounded-[1.75rem] p-6">
+        <h3 class="text-xl font-semibold">Network Solutions</h3>
+        <p class="mt-3 text-white/65">
+          Setup, troubleshooting, optimization, and support for reliable
+          connectivity.
+        </p>
+      </article>
+
+      <article class="glass rounded-[1.75rem] p-6">
+        <h3 class="text-xl font-semibold">Website Development</h3>
+        <p class="mt-3 text-white/65">
+          Modern, responsive websites that help businesses look professional and
+          trustworthy.
+        </p>
+      </article>
+
+      <article class="glass rounded-[1.75rem] p-6">
+        <h3 class="text-xl font-semibold">App Development</h3>
+        <p class="mt-3 text-white/65">
+          Practical digital tools and custom applications tailored to real
+          workflows.
+        </p>
+      </article>
+
+      <article class="glass rounded-[1.75rem] p-6">
+        <h3 class="text-xl font-semibold">SaaS Development</h3>
+        <p class="mt-3 text-white/65">
+          Platforms, dashboards, portals, and scalable solutions for long-term
+          value.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="container-main py-16">
+    <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+      <div>
+        <p class="mb-4 text-sm uppercase tracking-[0.18em] text-white/50">
+          Why Choose Me
+        </p>
+        <h2 class="section-title">
+          Technical work should feel clear, not overwhelming
+        </h2>
+        <p class="section-copy mt-4 text-lg">
+          The goal is not to overcomplicate things. It is to understand what you
+          actually need and deliver a solution that is modern, useful, and
+          realistic.
+        </p>
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2">
+        <div class="glass rounded-[1.75rem] p-6">
+          <h3 class="text-lg font-semibold">Clear communication</h3>
+          <p class="mt-3 text-white/65">
+            Technical topics are explained in a way that is easy to understand
+            and act on.
+          </p>
+        </div>
+
+        <div class="glass rounded-[1.75rem] p-6">
+          <h3 class="text-lg font-semibold">Practical solutions</h3>
+          <p class="mt-3 text-white/65">
+            Every recommendation is focused on solving real problems, not adding
+            unnecessary complexity.
+          </p>
+        </div>
+
+        <div class="glass rounded-[1.75rem] p-6">
+          <h3 class="text-lg font-semibold">Modern mindset</h3>
+          <p class="mt-3 text-white/65">
+            Websites, apps, SaaS, and network solutions are built with
+            performance and usability in mind.
+          </p>
+        </div>
+
+        <div class="glass rounded-[1.75rem] p-6">
+          <h3 class="text-lg font-semibold">Flexible support</h3>
+          <p class="mt-3 text-white/65">
+            From small fixes to bigger projects, the approach stays focused,
+            professional, and adaptable.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-main py-16">
+    <div class="glass rounded-[2rem] p-8 sm:p-10">
+      <div class="max-w-3xl">
+        <p class="mb-4 text-sm uppercase tracking-[0.18em] text-white/50">
+          Problems I Help Solve
+        </p>
+        <h2 class="section-title">
+          Not sure what you need yet? That’s completely fine.
+        </h2>
+        <p class="section-copy mt-4 text-lg">
+          Many clients start with a problem, not a technical plan. That is why
+          the process starts with understanding the need first, then choosing
+          the right solution.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-4 md:grid-cols-2">
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+          “I need a professional website for my business.”
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+          “My network or Wi-Fi setup is unreliable.”
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+          “I have an app or SaaS idea but don’t know how to start.”
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+          “My current website feels outdated or does not convert.”
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+          “I need a digital tool that fits my workflow.”
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+          “I want a technical solution that is simple and effective.”
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-main py-16">
+    <div class="max-w-2xl">
+      <p class="mb-4 text-sm uppercase tracking-[0.18em] text-white/50">
+        How It Works
+      </p>
+      <h2 class="section-title">
+        A simple process from first message to finished solution
+      </h2>
+      <p class="section-copy mt-4 text-lg">
+        The goal is to keep things straightforward, transparent, and easy to
+        move forward with.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+      <div class="glass rounded-[1.75rem] p-6">
+        <p class="text-sm text-white/50">Step 1</p>
+        <h3 class="mt-2 text-xl font-semibold">Tell me what you need</h3>
+        <p class="mt-3 text-white/65">
+          Share your idea, problem, or current setup.
+        </p>
+      </div>
+
+      <div class="glass rounded-[1.75rem] p-6">
+        <p class="text-sm text-white/50">Step 2</p>
+        <h3 class="mt-2 text-xl font-semibold">Get a practical direction</h3>
+        <p class="mt-3 text-white/65">
+          The next step is identifying the simplest effective solution.
+        </p>
+      </div>
+
+      <div class="glass rounded-[1.75rem] p-6">
+        <p class="text-sm text-white/50">Step 3</p>
+        <h3 class="mt-2 text-xl font-semibold">Build or improve</h3>
+        <p class="mt-3 text-white/65">
+          The project is developed, fixed, or optimized based on your needs.
+        </p>
+      </div>
+
+      <div class="glass rounded-[1.75rem] p-6">
+        <p class="text-sm text-white/50">Step 4</p>
+        <h3 class="mt-2 text-xl font-semibold">Launch with confidence</h3>
+        <p class="mt-3 text-white/65">
+          You end up with something professional, useful, and ready to use.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-main py-20">
+    <div
+      class="rounded-[2rem] border border-white/10 bg-white/5 p-8 text-center sm:p-12"
+    >
+      <p class="mb-4 text-sm uppercase tracking-[0.18em] text-white/50">
+        Let’s Talk
+      </p>
+      <h2
+        class="mx-auto max-w-3xl text-3xl font-bold tracking-tight sm:text-5xl"
+      >
+        Need a website, app, SaaS solution, or network support?
+      </h2>
+      <p class="mx-auto mt-5 max-w-2xl text-lg text-white/65">
+        Whether you already know exactly what you need or you are still figuring
+        it out, the next step can be simple.
+      </p>
+
+      <div
+        class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row"
+      >
+        <a href="/contact" class="btn-primary">Start Your Project</a>
+        <a href="mailto:basha.IT.Solution@gmail.com" class="btn-secondary"
+          >Email Directly</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <section class="container-main py-20">
+    <div
+      class="grid gap-10 rounded-[2rem] border border-white/10 bg-white/5 p-8 sm:p-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start"
+    >
+      <div>
+        <p class="mb-4 text-sm uppercase tracking-[0.18em] text-white/50">
+          Contact
+        </p>
+        <h2 class="max-w-xl text-3xl font-bold tracking-tight sm:text-5xl">
+          Start with a simple message
+        </h2>
+
+        <p class="mt-5 max-w-xl text-lg text-white/65">
+          Whether you need a website, app, SaaS platform, network support, or
+          just want to discuss an idea, you do not need to have everything
+          figured out yet.
+        </p>
+
+        <p class="mt-4 max-w-xl text-base text-white/50">
+          Tell me briefly what you need, and I’ll get back to you with a
+          practical next step.
+        </p>
+
+        <div class="mt-8 space-y-4">
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+            <p class="text-sm text-white/50">Email</p>
+            <p class="mt-1 font-medium text-white">
+              basha.IT.Solution@gmail.com
+            </p>
+          </div>
+
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+            <p class="text-sm text-white/50">Focus</p>
+            <p class="mt-1 font-medium text-white">
+              Networks, websites, apps, SaaS, and technical solutions
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <form
+        method="POST"
+        action={actions.contact}
+        class="glass rounded-[1.75rem] p-6 sm:p-8"
+      >
+        <input type="text" name="company" class="hidden" />
+        {
+          result?.data?.success && (
+            <div class="mb-6 rounded-2xl border border-emerald-400/20 bg-emerald-400/10 p-4 text-sm text-emerald-200">
+              Thanks — your message was sent successfully. I’ll get back to you
+              soon.
+            </div>
+          )
+        }
+
+        {
+          result?.error && (
+            <div class="mb-6 rounded-2xl border border-red-400/20 bg-red-400/10 p-4 text-sm text-red-200">
+              Something went wrong. Please try again or email me directly at
+              <a href="mailto:basha.IT.Solution@gmail.com" class="underline">
+                {" "}
+                basha.IT.Solution@gmail.com
+              </a>
+              .
+            </div>
+          )
+        }
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div class="sm:col-span-1">
+            <label
+              for="name"
+              class="mb-2 block text-sm font-medium text-white/80"
+            >
+              Name
+            </label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              minlength="2"
+              placeholder="Your name"
+              class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/35 outline-none transition focus:border-white/25 focus:bg-white/8"
+            />
+          </div>
+
+          <div class="sm:col-span-1">
+            <label
+              for="email"
+              class="mb-2 block text-sm font-medium text-white/80"
+            >
+              Email
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              placeholder="you@example.com"
+              class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/35 outline-none transition focus:border-white/25 focus:bg-white/8"
+            />
+          </div>
+
+          <div class="sm:col-span-2">
+            <label
+              for="service"
+              class="mb-2 block text-sm font-medium text-white/80"
+            >
+              Service needed
+            </label>
+            <select
+              id="service"
+              name="service"
+              required
+              class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-white/25 focus:bg-white/8"
+            >
+              <option value="" class="bg-[#0b1020] text-white"
+                >Select a service</option
+              >
+              <option
+                value="website-development"
+                class="bg-[#0b1020] text-white">Website Development</option
+              >
+              <option value="app-development" class="bg-[#0b1020] text-white"
+                >App Development</option
+              >
+              <option value="saas-development" class="bg-[#0b1020] text-white"
+                >SaaS Development</option
+              >
+              <option value="network-solutions" class="bg-[#0b1020] text-white"
+                >Network Solutions</option
+              >
+              <option value="it-support" class="bg-[#0b1020] text-white"
+                >IT Support</option
+              >
+              <option value="not-sure-yet" class="bg-[#0b1020] text-white"
+                >Not sure yet</option
+              >
+            </select>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label
+              for="message"
+              class="mb-2 block text-sm font-medium text-white/80"
+            >
+              Project details
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
+              required
+              minlength="10"
+              placeholder="Tell me a little about what you need..."
+              class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/35 outline-none transition focus:border-white/25 focus:bg-white/8"
+            ></textarea>
+          </div>
+        </div>
+
+        <div
+          class="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <p class="text-sm text-white/45">
+            A short message is enough to get started.
+          </p>
+
+          <button type="submit" class="btn-primary"> Send Inquiry </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</BaseLayout>
