@@ -1,0 +1,31 @@
+---
+import { defaultLang, type Lang } from "../../i18n/ui";
+import { useTranslations } from "../../i18n/utils";
+
+interface Props { lang?: Lang }
+const { lang = defaultLang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="container-main pt-20 pb-16">
+  <div class="grid gap-10 lg:grid-cols-[1fr_0.9fr]">
+    <div>
+      <p class="mb-4 text-sm uppercase tracking-[0.18em] text-white/50">{t("contact.kicker")}</p>
+      <h1 class="section-title">{t("contact.title")}</h1>
+      <p class="section-copy mt-4 max-w-2xl text-lg">{t("contact.copy")}</p>
+    </div>
+
+    <div class="glass rounded-[2rem] p-8">
+      <h2 class="text-2xl font-semibold">{t("contact.inquiryTitle")}</h2>
+      <div class="mt-6 space-y-4 text-white/75">
+        <p><span class="font-semibold text-white">{t("contact.emailLabel")}</span> basha.IT.Solution@gmail.com</p>
+        <p><span class="font-semibold text-white">{t("contact.locationLabel")}</span> {t("brand.location")}</p>
+        <p><span class="font-semibold text-white">{t("contact.focusLabel")}</span> {t("contact.focusValue")}</p>
+      </div>
+
+      <div class="mt-8">
+        <a href="mailto:basha.IT.Solution@gmail.com" class="btn-primary w-full">{t("contact.cta")}</a>
+      </div>
+    </div>
+  </div>
+</section>

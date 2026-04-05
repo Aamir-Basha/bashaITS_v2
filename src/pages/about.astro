@@ -1,23 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import AboutPage from "../components/pages/AboutPage.astro";
+import { t } from "../i18n/utils";
+
+const lang = "en" as const;
 ---
 
-<BaseLayout
-  title="About | Basha IT Solutions"
-  description="Learn more about Basha IT Solutions and the focus on clear, practical technology."
->
-  <section class="container-main pt-20 pb-16">
-    <div class="max-w-3xl">
-      <p class="mb-4 text-sm uppercase tracking-[0.18em] text-white/50">About</p>
-      <h1 class="section-title">Clear technology, practical execution, real results</h1>
-      <p class="mt-6 text-lg leading-8 text-white/70">
-        Basha IT Solutions focuses on building modern digital solutions without unnecessary complexity.
-        The goal is simple: create systems that are useful, professional, and aligned with real needs.
-      </p>
-      <p class="mt-4 text-lg leading-8 text-white/70">
-        From network support to websites, apps, and SaaS development, the work is centered around trust,
-        clarity, and practical outcomes that clients can actually use.
-      </p>
-    </div>
-  </section>
+<BaseLayout title={t(lang, "pages.about.title")} description={t(lang, "pages.about.description")} lang={lang}>
+  <AboutPage lang={lang} />
 </BaseLayout>

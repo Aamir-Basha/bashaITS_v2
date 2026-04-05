@@ -1,0 +1,49 @@
+---
+import { defaultLang, type Lang } from "../../i18n/ui";
+import { useTranslations } from "../../i18n/utils";
+
+interface Props { lang?: Lang }
+const { lang = defaultLang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="container-main py-20">
+  <h1 class="section-title">{t("legal.privacyHeading")}</h1>
+
+  <div class="mt-8 space-y-6 max-w-3xl leading-relaxed text-white/70">
+    <div>
+      <h2 class="text-xl font-semibold text-white">1. {lang === "de" ? "Allgemeine Hinweise" : "General information"}</h2>
+      <p class="mt-2">{lang === "de" ? "Die folgenden Hinweise geben einen Überblick darüber, was mit Ihren personenbezogenen Daten beim Besuch dieser Website passiert." : "The following information provides an overview of what happens to your personal data when you visit this website."}</p>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-semibold text-white">2. {lang === "de" ? "Verantwortliche Stelle" : "Controller"}</h2>
+      <p class="mt-2">Aamir Mosa Basha<br />LudwigStr. 29<br />38106 Braunschweig<br />{lang === "de" ? "Deutschland" : "Germany"}<br />E-Mail: basha.IT.Solution@gmail.com</p>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-semibold text-white">3. {lang === "de" ? "Datenerfassung über das Kontaktformular" : "Data collection via contact form"}</h2>
+      <p class="mt-2">{lang === "de" ? "Wenn Sie uns über das Kontaktformular Anfragen senden, werden die Angaben inklusive Kontaktdaten zum Zweck der Bearbeitung und für mögliche Rückfragen gespeichert." : "If you send inquiries via the contact form, the submitted information including contact details will be stored for processing your request and possible follow-up questions."}</p>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-semibold text-white">4. {lang === "de" ? "Zweck der Verarbeitung" : "Purpose of processing"}</h2>
+      <p class="mt-2">{lang === "de" ? "Die Verarbeitung Ihrer Daten erfolgt ausschließlich zur Bearbeitung Ihrer Anfrage und zur Kontaktaufnahme." : "Your data is processed solely for handling your request and contacting you."}</p>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-semibold text-white">5. {lang === "de" ? "Hosting & E-Mail-Versand" : "Hosting & email delivery"}</h2>
+      <p class="mt-2">{lang === "de" ? "Für den Versand von Anfragen wird ein externer E-Mail-Dienstleister (Resend) verwendet. Dabei können personenbezogene Daten (z. B. Name, E-Mail-Adresse, Nachricht) verarbeitet werden." : "An external email provider (Resend) is used to deliver inquiries. Personal data (e.g., name, email address, message) may be processed."}</p>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-semibold text-white">6. {lang === "de" ? "Ihre Rechte" : "Your rights"}</h2>
+      <p class="mt-2">{lang === "de" ? "Sie haben jederzeit das Recht auf Auskunft über gespeicherte personenbezogene Daten sowie auf Berichtigung oder Löschung im Rahmen der gesetzlichen Vorgaben." : "You have the right to request information about stored personal data as well as correction or deletion within the scope of legal requirements."}</p>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-semibold text-white">7. {lang === "de" ? "Widerruf Ihrer Einwilligung" : "Withdrawal of consent"}</h2>
+      <p class="mt-2">{lang === "de" ? "Eine erteilte Einwilligung zur Datenverarbeitung kann jederzeit mit Wirkung für die Zukunft widerrufen werden." : "Any consent you have given for data processing can be withdrawn at any time with effect for the future."}</p>
+    </div>
+  </div>
+</section>

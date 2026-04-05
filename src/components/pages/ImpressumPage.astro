@@ -1,0 +1,44 @@
+---
+import { defaultLang, type Lang } from "../../i18n/ui";
+import { useTranslations } from "../../i18n/utils";
+
+interface Props { lang?: Lang }
+const { lang = defaultLang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="container-main py-20">
+  <h1 class="section-title">{t("legal.impressumHeading")}</h1>
+
+  <div class="mt-8 space-y-6 max-w-3xl leading-relaxed text-white/70">
+    <div>
+      <h2 class="text-xl font-semibold text-white">{lang === "de" ? "Angaben gemäß § 5 TMG" : "Information according to § 5 TMG"}</h2>
+      <p class="mt-2">
+        Aamir Mosa Basha<br />
+        LudwigStr. 29<br />
+        38106 Braunschweig<br />
+        {lang === "de" ? "Deutschland" : "Germany"}
+      </p>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-semibold text-white">{lang === "de" ? "Kontakt" : "Contact"}</h2>
+      <p class="mt-2">E-Mail: basha.IT.Solution@gmail.com</p>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-semibold text-white">{lang === "de" ? "Umsatzsteuer-ID" : "VAT ID"}</h2>
+      <p class="mt-2">{lang === "de" ? "Keine Umsatzsteuer-ID gemäß §19 UStG (Kleinunternehmerregelung)" : "No VAT ID according to §19 UStG (small business regulation)."}</p>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-semibold text-white">{lang === "de" ? "Haftung für Inhalte" : "Liability for content"}</h2>
+      <p class="mt-2">{lang === "de" ? "Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität kann jedoch keine Gewähr übernommen werden." : "The contents of this website were created with great care. However, we cannot guarantee correctness, completeness, or up-to-date accuracy."}</p>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-semibold text-white">{lang === "de" ? "Haftung für Links" : "Liability for links"}</h2>
+      <p class="mt-2">{lang === "de" ? "Diese Website enthält Links zu externen Websites Dritter. Auf deren Inhalte besteht kein Einfluss, daher wird für fremde Inhalte keine Gewähr übernommen." : "This website contains links to external third-party websites. We have no control over their contents and therefore assume no liability for them."}</p>
+    </div>
+  </div>
+</section>

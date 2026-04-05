@@ -1,85 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import DatenschutzPage from "../components/pages/DatenschutzPage.astro";
+import { t } from "../i18n/utils";
+
+const lang = "en" as const;
 ---
 
-<BaseLayout title="Datenschutz | Basha IT Solutions">
-  <section class="container-main py-20">
-    <h1 class="section-title">Datenschutzerklärung</h1>
-
-    <div class="mt-8 space-y-6 text-white/70 leading-relaxed max-w-3xl">
-      <div>
-        <h2 class="text-xl font-semibold text-white">1. Allgemeine Hinweise</h2>
-        <p class="mt-2">
-          Die folgenden Hinweise geben einen einfachen Überblick darüber, was
-          mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website
-          besuchen.
-        </p>
-      </div>
-
-      <div>
-        <h2 class="text-xl font-semibold text-white">
-          2. Verantwortliche Stelle
-        </h2>
-        <p class="mt-2">
-          Aamir Mosa Basha<br />
-          LudwigStr. 29<br />
-          38106 Braunschweig<br />
-          Deutschland<br />
-          E-Mail: basha.IT.Solution@gmail.com
-        </p>
-      </div>
-
-      <div>
-        <h2 class="text-xl font-semibold text-white">
-          3. Datenerfassung über das Kontaktformular
-        </h2>
-        <p class="mt-2">
-          Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre
-          Angaben aus dem Anfrageformular inklusive der von Ihnen dort
-          angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den
-          Fall von Anschlussfragen bei uns gespeichert.
-        </p>
-      </div>
-
-      <div>
-        <h2 class="text-xl font-semibold text-white">
-          4. Zweck der Verarbeitung
-        </h2>
-        <p class="mt-2">
-          Die Verarbeitung Ihrer Daten erfolgt ausschließlich zur Bearbeitung
-          Ihrer Anfrage und zur Kontaktaufnahme.
-        </p>
-      </div>
-
-      <div>
-        <h2 class="text-xl font-semibold text-white">
-          5. Hosting & E-Mail Versand
-        </h2>
-        <p class="mt-2">
-          Für den Versand von Anfragen wird ein externer E-Mail-Dienstleister
-          (Resend) verwendet. Dabei können personenbezogene Daten (z. B. Name,
-          E-Mail-Adresse, Nachricht) verarbeitet werden.
-        </p>
-      </div>
-
-      <div>
-        <h2 class="text-xl font-semibold text-white">6. Ihre Rechte</h2>
-        <p class="mt-2">
-          Sie haben jederzeit das Recht auf Auskunft über Ihre gespeicherten
-          personenbezogenen Daten, deren Herkunft und Empfänger sowie den Zweck
-          der Datenverarbeitung.
-        </p>
-      </div>
-
-      <div>
-        <h2 class="text-xl font-semibold text-white">
-          7. Widerruf Ihrer Einwilligung
-        </h2>
-        <p class="mt-2">
-          Sie können eine bereits erteilte Einwilligung zur Datenverarbeitung
-          jederzeit widerrufen.
-        </p>
-      </div>
-    </div>
-  </section>
+<BaseLayout title={t(lang, "pages.datenschutz.title")} lang={lang}>
+  <DatenschutzPage lang={lang} />
 </BaseLayout>

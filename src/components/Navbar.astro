@@ -1,39 +1,81 @@
 ---
+import { defaultLang, languages, type Lang } from "../i18n/ui";
+import { localizePath, switchLocalePath, useTranslations } from "../i18n/utils";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = defaultLang } = Astro.props;
+const t = useTranslations(lang);
+
 const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: t("nav.home") },
+  { href: "/services", label: t("nav.services") },
+  { href: "/about", label: t("nav.about") },
+  { href: "/contact", label: t("nav.contact") },
 ];
+
+const currentPath = Astro.url.pathname;
+const dePath = switchLocalePath(currentPath, "de");
+const enPath = switchLocalePath(currentPath, "en");
 ---
 
 <header class="sticky top-0 z-50 border-b border-white/10 bg-[#060a14]/80 backdrop-blur-xl">
-  <div class="container-main flex items-center justify-between py-4">
-    <a href="/" class="flex items-center gap-3">
+  <div class="container-main flex items-center justify-between gap-4 py-4">
+    <a href={localizePath(lang, "/")} class="flex items-center gap-3">
       <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500/80 to-violet-500/80 ring-1 ring-white/20 shadow-lg shadow-indigo-500/25">
         <span class="text-sm font-bold text-white">BI</span>
       </div>
 
       <div class="leading-tight">
-        <p class="text-sm font-semibold text-white">Basha IT Solutions</p>
-        <p class="text-xs text-white/60">Professional IT solutions without unnecessary complexity</p>
+        <p class="text-sm font-semibold text-white">{t("brand.name")}</p>
+        <p class="text-xs text-white/60">{t("brand.tagline")}</p>
       </div>
     </a>
 
     <nav class="hidden items-center gap-2 md:flex">
       {
         navItems.map((item) => (
-          <a href={item.href} class="rounded-xl px-4 py-2 text-sm text-white/75 transition hover:bg-white/8 hover:text-white">
+          <a href={localizePath(lang, item.href)} class="rounded-xl px-4 py-2 text-sm text-white/75 transition hover:bg-white/8 hover:text-white">
             {item.label}
           </a>
         ))
       }
     </nav>
 
-    <a href="/contact" class="hidden md:inline-flex btn-primary">Get in Touch</a>
+    <div class="hidden items-center gap-3 md:flex">
+      <div class="inline-flex items-center rounded-xl border border-white/15 bg-white/5 p-1 text-xs text-white/75">
+        <a
+          href={enPath}
+          class:list={["rounded-lg px-3 py-1.5 transition", lang === "en" ? "bg-white/15 text-white" : "hover:bg-white/10"]}
+          aria-label={`${t("nav.language")}: ${languages.en}`}
+        >
+          EN
+        </a>
+        <a
+          href={dePath}
+          class:list={["rounded-lg px-3 py-1.5 transition", lang === "de" ? "bg-white/15 text-white" : "hover:bg-white/10"]}
+          aria-label={`${t("nav.language")}: ${languages.de}`}
+        >
+          DE
+        </a>
+      </div>
 
-    <a href="/contact" class="inline-flex rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm text-white md:hidden">
-      Contact
-    </a>
+      <a href={localizePath(lang, "/contact")} class="btn-primary">{t("nav.cta")}</a>
+    </div>
+
+    <div class="flex items-center gap-2 md:hidden">
+      <a
+        href={lang === "en" ? dePath : enPath}
+        class="rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-xs text-white"
+        aria-label={t("nav.language")}
+      >
+        {lang === "en" ? "DE" : "EN"}
+      </a>
+      <a href={localizePath(lang, "/contact")} class="inline-flex rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm text-white">
+        {t("nav.mobileCta")}
+      </a>
+    </div>
   </div>
 </header>

@@ -1,51 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import ImpressumPage from "../components/pages/ImpressumPage.astro";
+import { t } from "../i18n/utils";
+
+const lang = "en" as const;
 ---
 
-<BaseLayout title="Impressum | Basha IT Solutions">
-  <section class="container-main py-20">
-    <h1 class="section-title">Impressum</h1>
-
-    <div class="mt-8 space-y-6 text-white/70 leading-relaxed max-w-3xl">
-      <div>
-        <h2 class="text-xl font-semibold text-white">Angaben gemäß § 5 TMG</h2>
-        <p class="mt-2">
-          Aamir Mosa Basha<br />
-          LudwigStr. 29<br />
-          38106 Braunschweig<br />
-          Deutschland
-        </p>
-      </div>
-
-      <div>
-        <h2 class="text-xl font-semibold text-white">Kontakt</h2>
-        <p class="mt-2">E-Mail: basha.IT.Solution@gmail.com</p>
-      </div>
-
-      <div>
-        <h2 class="text-xl font-semibold text-white">Umsatzsteuer-ID</h2>
-        <p class="mt-2">
-          Keine Umsatzsteuer-ID gemäß §19 UStG (Kleinunternehmerregelung)
-        </p>
-      </div>
-
-      <div>
-        <h2 class="text-xl font-semibold text-white">Haftung für Inhalte</h2>
-        <p class="mt-2">
-          Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für
-          die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir
-          jedoch keine Gewähr übernehmen.
-        </p>
-      </div>
-
-      <div>
-        <h2 class="text-xl font-semibold text-white">Haftung für Links</h2>
-        <p class="mt-2">
-          Unser Angebot enthält Links zu externen Websites Dritter, auf deren
-          Inhalte wir keinen Einfluss haben. Deshalb können wir für diese
-          fremden Inhalte auch keine Gewähr übernehmen.
-        </p>
-      </div>
-    </div>
-  </section>
+<BaseLayout title={t(lang, "pages.impressum.title")} lang={lang}>
+  <ImpressumPage lang={lang} />
 </BaseLayout>
