@@ -1,0 +1,24 @@
+---
+import Button from "./Button.astro";
+
+interface Props {
+  title: string;
+  text: string;
+  href: string;
+  buttonLabel: string;
+}
+
+const { title, text, href, buttonLabel } = Astro.props;
+---
+<section class="section section--compact">
+  <div class="container">
+    <!-- Change this block's spacing/colors in .card and .section classes -->
+    <div class="card center-text">
+      <h2 class="page-title">{title}</h2>
+      <p class="page-intro" style="margin-inline: auto;">{text}</p>
+      <div class="mt-6">
+        <Button href={href}>{buttonLabel}</Button>
+      </div>
+    </div>
+  </div>
+</section>
