@@ -906,6 +906,14 @@ p {
   line-height: 1.5;
 }
 
+.contact-method-value {
+  margin-top: var(--space-2);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--color-text-primary);
+}
+
 .contact-method-link {
   display: inline-flex;
   margin-top: var(--space-3);
