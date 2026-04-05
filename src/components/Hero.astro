@@ -61,6 +61,10 @@ const {
         {
           metrics.length > 0 && (
             <aside class="hero-metrics" aria-label={proofLabel ?? "Client outcomes"}>
+              <div class="hero-metrics-head">
+                <p>{proofLabel ?? "System outcomes"}</p>
+                <span class="hero-metrics-status">{kicker}</span>
+              </div>
               {metrics.map((item) => (
                 <article class="hero-metric-item">
                   <p class="hero-metric-value">{item.value}</p>

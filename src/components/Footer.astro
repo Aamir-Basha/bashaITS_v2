@@ -13,36 +13,39 @@ const t = useTranslations(lang);
 
 <footer class="site-footer">
   <Container>
-    <div class="footer-grid">
-      <section>
-        <h3>{t("brand.name")}</h3>
-        <p class="mt-4">{t("pages.home.description")}</p>
-      </section>
+    <div class="footer-panel">
+      <div class="footer-grid">
+        <section class="footer-brand-block">
+          <p class="footer-system-label">{lang === "de" ? "Digitale Systemarchitektur" : "Digital systems architecture"}</p>
+          <h3>{t("brand.name")}</h3>
+          <p class="mt-4">{t("pages.home.description")}</p>
+        </section>
 
-      <section>
-        <h4 class="footer-heading">{t("footer.servicesHeading")}</h4>
-        <ul class="footer-list">
-          <li><a class="footer-link" href={localizePath(lang, "/services")}>{t("footer.network")}</a></li>
-          <li><a class="footer-link" href={localizePath(lang, "/services")}>{t("footer.web")}</a></li>
-          <li><a class="footer-link" href={localizePath(lang, "/services")}>{t("footer.app")}</a></li>
-          <li><a class="footer-link" href={localizePath(lang, "/services")}>{t("footer.saas")}</a></li>
-        </ul>
-      </section>
+        <section>
+          <h4 class="footer-heading">{t("footer.servicesHeading")}</h4>
+          <ul class="footer-list">
+            <li><a class="footer-link" href={localizePath(lang, "/services")}>{t("footer.network")}</a></li>
+            <li><a class="footer-link" href={localizePath(lang, "/services")}>{t("footer.web")}</a></li>
+            <li><a class="footer-link" href={localizePath(lang, "/services")}>{t("footer.app")}</a></li>
+            <li><a class="footer-link" href={localizePath(lang, "/services")}>{t("footer.saas")}</a></li>
+          </ul>
+        </section>
 
-      <section>
-        <h4 class="footer-heading">{t("footer.companyHeading")}</h4>
-        <ul class="footer-list">
-          <li><a class="footer-link" href={localizePath(lang, "/about")}>{t("nav.about")}</a></li>
-          <li><a class="footer-link" href={localizePath(lang, "/contact")}>{t("nav.contact")}</a></li>
-          <li><a class="footer-link" href={localizePath(lang, "/impressum")}>{t("footer.impressum")}</a></li>
-          <li><a class="footer-link" href={localizePath(lang, "/datenschutz")}>{t("footer.privacy")}</a></li>
-        </ul>
-      </section>
-    </div>
+        <section>
+          <h4 class="footer-heading">{t("footer.companyHeading")}</h4>
+          <ul class="footer-list">
+            <li><a class="footer-link" href={localizePath(lang, "/about")}>{t("nav.about")}</a></li>
+            <li><a class="footer-link" href={localizePath(lang, "/contact")}>{t("nav.contact")}</a></li>
+            <li><a class="footer-link" href={localizePath(lang, "/impressum")}>{t("footer.impressum")}</a></li>
+            <li><a class="footer-link" href={localizePath(lang, "/datenschutz")}>{t("footer.privacy")}</a></li>
+          </ul>
+        </section>
+      </div>
 
-    <div class="footer-bottom" style="display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
-      <p>{t("footer.rights")}</p>
-      <p>{t("brand.location")}</p>
+      <div class="footer-bottom">
+        <p>{t("footer.rights")}</p>
+        <p>{t("brand.location")}</p>
+      </div>
     </div>
   </Container>
 </footer>
