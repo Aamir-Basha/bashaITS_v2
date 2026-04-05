@@ -1,11 +1,10 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import DatenschutzPage from "../../components/pages/DatenschutzPage.astro";
-import { t } from "../../i18n/utils";
 
 const lang = "de" as const;
 ---
 
-<BaseLayout title={t(lang, "pages.datenschutz.title")} lang={lang}>
+<BaseLayout lang={lang} page="datenschutz">
   <DatenschutzPage lang={lang} />
 </BaseLayout>

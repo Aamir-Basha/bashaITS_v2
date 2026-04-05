@@ -1,11 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ServicesPage from "../components/pages/ServicesPage.astro";
-import { t } from "../i18n/utils";
 
 const lang = "en" as const;
 ---
 
-<BaseLayout title={t(lang, "pages.services.title")} description={t(lang, "pages.services.description")} lang={lang}>
+<BaseLayout lang={lang} page="services">
   <ServicesPage lang={lang} />
 </BaseLayout>
