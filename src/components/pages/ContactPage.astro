@@ -4,29 +4,260 @@ import Card from "../Card.astro";
 import Container from "../Container.astro";
 import Section from "../Section.astro";
 import { defaultLang, type Lang } from "../../i18n/ui";
-import { useTranslations } from "../../i18n/utils";
 
 interface Props { lang?: Lang }
 const { lang = defaultLang } = Astro.props;
-const t = useTranslations(lang);
+
+const content = lang === "de"
+  ? {
+      kicker: "Kontakt",
+      title: "Lassen Sie uns den nächsten sinnvollen Schritt für Ihr Projekt planen",
+      intro:
+        "Ob Website, Software, Automatisierung, technischer Support oder strategische Planung: Sie können unkompliziert schreiben. Ich antworte klar, strukturiert und mit Fokus auf umsetzbare Ergebnisse.",
+      cardTitle: "Projektanfrage",
+      emailLabel: "E-Mail",
+      locationLabel: "Standort",
+      focusLabel: "Fokus",
+      focusValue: "Websites, Software, Automatisierung, IT-Support und technische Planung",
+      responseLabel: "Rückmeldung",
+      responseValue: "In der Regel innerhalb von 24–48 Stunden (werktags)",
+      languagesLabel: "Sprachen",
+      languagesValue: "Deutsch, Englisch",
+      projectTypesLabel: "Projektarten",
+      projectTypesValue: "Neuprojekte, Optimierungen, technische Stabilisierung",
+      workStyleLabel: "Arbeitsweise",
+      workStyleValue: "Direkte Kommunikation, klare Prioritäten, transparente Updates",
+      contactCta: "Projekt per E-Mail starten",
+      contactSupport: "Kurze Nachricht reicht. Sie erhalten eine klare Ersteinschätzung und sinnvolle nächste Schritte.",
+      contactTopicsTitle: "Wobei ich Sie unterstützen kann",
+      contactTopics: [
+        "Conversion-starke Unternehmenswebsites und Relaunches",
+        "Individuelle Software, interne Tools und SaaS-MVPs",
+        "Automatisierungen für wiederkehrende Abläufe und Reporting",
+        "Technischer Support für laufende Systeme, Infrastruktur und Stabilität",
+        "Technische Projektplanung, Scope-Schärfung und Priorisierung",
+      ],
+      helpfulTitle: "Hilfreich in Ihrer Nachricht",
+      helpfulCopy: "Je klarer der Kontext, desto schneller erhalten Sie eine konkrete Empfehlung.",
+      helpfulItems: [
+        "Projektart oder Anliegen (z. B. Website, Software, Automation)",
+        "Aktuelle Herausforderung oder Engpass",
+        "Zielbild: Was soll sich geschäftlich verbessern?",
+        "Bestehendes System / Website / Prozess (falls vorhanden)",
+        "Rougher Zeitrahmen oder gewünschter Starttermin",
+      ],
+      nextTitle: "So geht es nach Ihrer Anfrage weiter",
+      nextSteps: [
+        {
+          title: "1) Eingang & erste Prüfung",
+          text: "Ich prüfe Ihr Anliegen, den Kontext und den wahrscheinlich sinnvollsten Lösungsweg.",
+        },
+        {
+          title: "2) Qualifizierte Rückmeldung",
+          text: "Sie erhalten eine strukturierte Einschätzung mit konkreten nächsten Schritten.",
+        },
+        {
+          title: "3) Kurzgespräch & Scope",
+          text: "Falls sinnvoll, klären wir Ziele, Umfang, Prioritäten und Rahmenbedingungen.",
+        },
+        {
+          title: "4) Umsetzungsplan",
+          text: "Danach erhalten Sie einen klaren Vorschlag für Umsetzung, Timing und Zusammenarbeit.",
+        },
+      ],
+    }
+  : {
+      kicker: "Contact",
+      title: "Let’s define the smartest next step for your project",
+      intro:
+        "Whether you need a website, software, automation, technical support, or planning guidance, reaching out is simple. You’ll get a clear, professional response focused on practical outcomes.",
+      cardTitle: "Project Inquiry",
+      emailLabel: "Email",
+      locationLabel: "Location",
+      focusLabel: "Focus",
+      focusValue: "Websites, software, automation, technical support, and delivery planning",
+      responseLabel: "Response expectation",
+      responseValue: "Typically within 24–48 hours (business days)",
+      languagesLabel: "Languages",
+      languagesValue: "German, English",
+      projectTypesLabel: "Project types",
+      projectTypesValue: "New builds, optimization projects, technical stabilization",
+      workStyleLabel: "Working style",
+      workStyleValue: "Direct communication, clear priorities, transparent updates",
+      contactCta: "Start your project by email",
+      contactSupport: "A short message is enough to begin. I’ll reply with clear next steps and a practical recommendation.",
+      contactTopicsTitle: "What you can contact me about",
+      contactTopics: [
+        "Conversion-focused business websites and relaunches",
+        "Custom software, internal tools, and SaaS MVPs",
+        "Automation for repetitive workflows and reporting",
+        "Technical support for operations, infrastructure, and reliability",
+        "Technical project planning, scope definition, and prioritization",
+      ],
+      helpfulTitle: "Helpful to include",
+      helpfulCopy: "The more context you share, the faster I can give you a useful recommendation.",
+      helpfulItems: [
+        "Project type or request (e.g., website, software, automation)",
+        "Current problem, bottleneck, or technical pain point",
+        "Desired business outcome and goals",
+        "Existing website/system/process (if any)",
+        "Rough timeline or preferred project start",
+      ],
+      nextTitle: "What happens next",
+      nextSteps: [
+        {
+          title: "1) Review & qualification",
+          text: "I review your request, business context, and likely solution path.",
+        },
+        {
+          title: "2) Structured response",
+          text: "You get a clear first assessment with practical next-step options.",
+        },
+        {
+          title: "3) Scope alignment call",
+          text: "If relevant, we align on goals, priorities, scope, and constraints.",
+        },
+        {
+          title: "4) Delivery recommendation",
+          text: "I share a concrete proposal for execution, timeline, and collaboration model.",
+        },
+      ],
+    };
+
+const contactEmail = "basha.IT.Solution@gmail.com";
 ---
 
 <section class="section">
   <Container>
-    <Section kicker={t("contact.kicker")} title={t("contact.title")} intro={t("contact.copy")} titleAs="h1" compact>
-      <div class="grid-2">
-        <div class="section-surface" aria-hidden="true"></div>
-        <Card title={t("contact.inquiryTitle")} class="section-surface">
-          <div class="stack-sm">
-            <p><strong>{t("contact.emailLabel")}</strong> basha.IT.Solution@gmail.com</p>
-            <p><strong>{t("contact.locationLabel")}</strong> {t("brand.location")}</p>
-            <p><strong>{t("contact.focusLabel")}</strong> {t("contact.focusValue")}</p>
-          </div>
-          <div class="mt-6">
-            <Button href="mailto:basha.IT.Solution@gmail.com">{t("contact.cta")}</Button>
+    <Section kicker={content.kicker} title={content.title} intro={content.intro} titleAs="h1" compact>
+      <div class="grid-2 contact-layout">
+        <Card title={content.cardTitle} class="section-surface contact-primary-card">
+          <div class="stack-md">
+            <div class="stack-sm">
+              <p><strong>{content.emailLabel}:</strong> {contactEmail}</p>
+              <p><strong>{content.locationLabel}:</strong> {lang === "de" ? "Braunschweig, Deutschland" : "Braunschweig, Germany"}</p>
+              <p><strong>{content.focusLabel}:</strong> {content.focusValue}</p>
+            </div>
+
+            <div class="contact-meta-grid" aria-label={lang === "de" ? "Zusätzliche Projektdetails" : "Additional project details"}>
+              <p><strong>{content.responseLabel}:</strong> {content.responseValue}</p>
+              <p><strong>{content.languagesLabel}:</strong> {content.languagesValue}</p>
+              <p><strong>{content.projectTypesLabel}:</strong> {content.projectTypesValue}</p>
+              <p><strong>{content.workStyleLabel}:</strong> {content.workStyleValue}</p>
+            </div>
+
+            <div class="contact-cta-block">
+              <Button href={`mailto:${contactEmail}`}>{content.contactCta}</Button>
+              <p class="text-soft mt-4">{content.contactSupport}</p>
+            </div>
           </div>
         </Card>
+
+        <div class="stack-md">
+          <Card title={content.contactTopicsTitle} class="section-surface">
+            <ul class="contact-list">
+              {content.contactTopics.map((item) => <li>{item}</li>)}
+            </ul>
+          </Card>
+
+          <Card title={content.helpfulTitle} class="section-surface">
+            <p class="text-soft">{content.helpfulCopy}</p>
+            <ul class="contact-list mt-4">
+              {content.helpfulItems.map((item) => <li>{item}</li>)}
+            </ul>
+          </Card>
+        </div>
       </div>
+
+      <Card title={content.nextTitle} class="section-surface mt-6">
+        <div class="next-steps-grid">
+          {content.nextSteps.map((step) => (
+            <article class="next-step-item">
+              <h3>{step.title}</h3>
+              <p class="text-soft">{step.text}</p>
+            </article>
+          ))}
+        </div>
+      </Card>
     </Section>
   </Container>
 </section>
+
+<style>
+  .contact-layout {
+    align-items: start;
+  }
+
+  .contact-primary-card {
+    background: linear-gradient(180deg, rgba(18, 30, 56, 0.95), rgba(11, 20, 38, 0.98));
+  }
+
+  .contact-meta-grid {
+    display: grid;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    border: 1px solid color-mix(in srgb, var(--color-border-accent) 55%, var(--color-border));
+    background: color-mix(in srgb, var(--color-bg-surface-2) 72%, transparent);
+  }
+
+  .contact-cta-block {
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-4);
+  }
+
+  .contact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .contact-list li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.65rem;
+    align-items: start;
+    color: var(--color-text-muted);
+  }
+
+  .contact-list li::before {
+    content: "";
+    margin-top: 0.38rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: linear-gradient(180deg, var(--color-accent-2), var(--color-accent));
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 18%, transparent);
+  }
+
+  .next-steps-grid {
+    display: grid;
+    gap: var(--space-4);
+    grid-template-columns: 1fr;
+  }
+
+  .next-step-item {
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-bg-surface) 78%, transparent);
+  }
+
+  .next-step-item h3 {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .next-step-item p {
+    margin: var(--space-2) 0 0;
+    line-height: 1.55;
+  }
+
+  @media (min-width: 920px) {
+    .next-steps-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>
