@@ -1,0 +1,14 @@
+---
+import Card from "./Card.astro";
+
+interface Props {
+  title: string;
+  text: string;
+}
+
+const { title, text } = Astro.props;
+---
+<!-- Restyle this service box by editing .card and .card-title in global.css -->
+<Card title={title}>
+  <p>{text}</p>
+</Card>

@@ -1,4 +1,8 @@
 ---
+import ContactCTA from "../ContactCTA.astro";
+import Container from "../Container.astro";
+import Section from "../Section.astro";
+import ServiceCard from "../ServiceCard.astro";
 import { defaultLang, type Lang } from "../../i18n/ui";
 import { localizePath, useTranslations } from "../../i18n/utils";
 
@@ -25,36 +29,21 @@ const services = lang === "de"
     ];
 ---
 
-<section class="container-main pt-20 pb-16">
-  <div class="max-w-2xl">
-    <p class="mb-4 text-sm uppercase tracking-[0.18em] text-white/50">{t("services.kicker")}</p>
-    <h1 class="section-title">{t("services.title")}</h1>
-    <p class="section-copy mt-4 text-lg">{t("services.copy")}</p>
-  </div>
-
-  <div class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-    {services.map((service) => (
-      <article class="glass rounded-[1.75rem] p-6">
-        <h2 class="text-2xl font-semibold">{service.title}</h2>
-        <p class="mt-3 text-white/65">{service.text}</p>
-      </article>
-    ))}
-  </div>
+<section class="section">
+  <Container>
+    <Section kicker={t("services.kicker")} title={t("services.title")} intro={t("services.copy")} compact>
+      <div class="grid-3">
+        {services.map((service) => <ServiceCard title={service.title} text={service.text} />)}
+      </div>
+    </Section>
+  </Container>
 </section>
 
-<section class="container-main pb-20">
-  <div class="glass rounded-[1.75rem] p-8 text-center sm:p-10">
-    <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
-      {lang === "de" ? "Lassen Sie uns Ihr Projekt besprechen" : "Let's discuss your project"}
-    </h2>
-    <p class="mx-auto mt-4 max-w-2xl text-white/70">
-      {lang === "de"
-        ? "Sie suchen einen verlässlichen Partner für moderne IT-Lösungen? Schreiben Sie eine kurze Nachricht und wir klären die nächsten sinnvollen Schritte."
-        : "Need a reliable partner for modern IT delivery? Send a short message and we will define the most practical next steps."}
-    </p>
-    <a href={localizePath(lang, "/contact")} class="btn-primary mt-8 inline-flex">
-      {lang === "de" ? "Projekt anfragen" : "Start your project"}
-    </a>
-  </div>
-</section>
-
+<ContactCTA
+  title={lang === "de" ? "Lassen Sie uns Ihr Projekt besprechen" : "Let's discuss your project"}
+  text={lang === "de"
+    ? "Sie suchen einen verlässlichen Partner für moderne IT-Lösungen? Schreiben Sie eine kurze Nachricht und wir klären die nächsten sinnvollen Schritte."
+    : "Need a reliable partner for modern IT delivery? Send a short message and we will define the most practical next steps."}
+  href={localizePath(lang, "/contact")}
+  buttonLabel={lang === "de" ? "Projekt anfragen" : "Start your project"}
+/>

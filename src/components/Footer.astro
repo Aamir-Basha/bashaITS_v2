@@ -1,4 +1,5 @@
 ---
+import Container from "./Container.astro";
 import { defaultLang, type Lang } from "../i18n/ui";
 import { localizePath, useTranslations } from "../i18n/utils";
 
@@ -10,38 +11,38 @@ const { lang = defaultLang } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<footer class="mt-24 border-t border-white/10 bg-[#070d19]/70">
-  <div class="container-main grid gap-10 py-12 md:grid-cols-3">
-    <div>
-      <h3 class="text-lg font-semibold">{t("brand.name")}</h3>
-      <p class="mt-3 max-w-sm text-sm text-white/65">{t("pages.home.description")}</p>
+<footer class="site-footer">
+  <Container>
+    <div class="footer-grid">
+      <section>
+        <h3>{t("brand.name")}</h3>
+        <p class="mt-4">{t("pages.home.description")}</p>
+      </section>
+
+      <section>
+        <h4 class="footer-heading">{t("footer.servicesHeading")}</h4>
+        <ul class="footer-list">
+          <li><a href={localizePath(lang, "/services")}>{t("footer.network")}</a></li>
+          <li><a href={localizePath(lang, "/services")}>{t("footer.web")}</a></li>
+          <li><a href={localizePath(lang, "/services")}>{t("footer.app")}</a></li>
+          <li><a href={localizePath(lang, "/services")}>{t("footer.saas")}</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h4 class="footer-heading">{t("footer.companyHeading")}</h4>
+        <ul class="footer-list">
+          <li><a href={localizePath(lang, "/about")}>{t("nav.about")}</a></li>
+          <li><a href={localizePath(lang, "/contact")}>{t("nav.contact")}</a></li>
+          <li><a href={localizePath(lang, "/impressum")}>{t("footer.impressum")}</a></li>
+          <li><a href={localizePath(lang, "/datenschutz")}>{t("footer.privacy")}</a></li>
+        </ul>
+      </section>
     </div>
 
-    <div>
-      <h4 class="text-sm font-semibold uppercase tracking-[0.18em] text-white/60">{t("footer.servicesHeading")}</h4>
-      <ul class="mt-4 space-y-2 text-sm text-white/75">
-        <li><a href={localizePath(lang, "/services")} class="transition hover:text-white">{t("footer.network")}</a></li>
-        <li><a href={localizePath(lang, "/services")} class="transition hover:text-white">{t("footer.web")}</a></li>
-        <li><a href={localizePath(lang, "/services")} class="transition hover:text-white">{t("footer.app")}</a></li>
-        <li><a href={localizePath(lang, "/services")} class="transition hover:text-white">{t("footer.saas")}</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <h4 class="text-sm font-semibold uppercase tracking-[0.18em] text-white/60">{t("footer.companyHeading")}</h4>
-      <ul class="mt-4 space-y-2 text-sm text-white/75">
-        <li><a href={localizePath(lang, "/about")} class="transition hover:text-white">{t("nav.about")}</a></li>
-        <li><a href={localizePath(lang, "/contact")} class="transition hover:text-white">{t("nav.contact")}</a></li>
-        <li><a href={localizePath(lang, "/impressum")} class="transition hover:text-white">{t("footer.impressum")}</a></li>
-        <li><a href={localizePath(lang, "/datenschutz")} class="transition hover:text-white">{t("footer.privacy")}</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="border-t border-white/10">
-    <div class="container-main flex flex-col gap-3 py-5 text-sm text-white/50 md:flex-row md:items-center md:justify-between">
+    <div class="footer-bottom" style="display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
       <p>{t("footer.rights")}</p>
       <p>{t("brand.location")}</p>
     </div>
-  </div>
+  </Container>
 </footer>

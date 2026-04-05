@@ -1,0 +1,24 @@
+---
+interface Props {
+  kicker?: string;
+  title?: string;
+  intro?: string;
+  compact?: boolean;
+}
+
+const { kicker, title, intro, compact = false } = Astro.props;
+---
+<section class:list={["section", compact && "section--compact"]}>
+  <slot name="container-start" />
+
+  {(kicker || title || intro) && (
+    <header class="section-header">
+      {kicker && <p class="section-kicker">{kicker}</p>}
+      {title && <h1 class="page-title">{title}</h1>}
+      {intro && <p class="page-intro">{intro}</p>}
+    </header>
+  )}
+
+  <slot />
+  <slot name="container-end" />
+</section>
