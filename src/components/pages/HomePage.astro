@@ -2,6 +2,7 @@
 import Button from "../Button.astro";
 import Card from "../Card.astro";
 import ContactCTA from "../ContactCTA.astro";
+import ContactMethodCard from "../ContactMethodCard.astro";
 import Container from "../Container.astro";
 import Hero from "../Hero.astro";
 import Section from "../Section.astro";
@@ -276,6 +277,68 @@ const contactNextSteps = lang === "de"
       "Receive an initial assessment within 24–48 hours.",
       "Join a focused call to define scope, priorities, and immediate next steps.",
     ];
+
+const contactEmail = "basha.IT.Solution@gmail.com";
+const contactPhoneRaw = import.meta.env.PUBLIC_CONTACT_PHONE ?? "";
+const contactPhoneDigits = contactPhoneRaw.replace(/[^\d+]/g, "");
+const contactPhoneHref = contactPhoneDigits ? `tel:${contactPhoneDigits}` : `mailto:${contactEmail}?subject=${encodeURIComponent("Request a direct project call")}`;
+const contactWhatsAppRaw = import.meta.env.PUBLIC_WHATSAPP_NUMBER ?? contactPhoneRaw.replace(/\D/g, "");
+const contactWhatsAppHref = contactWhatsAppRaw
+  ? `https://wa.me/${contactWhatsAppRaw}?text=${encodeURIComponent(lang === "de" ? "Hallo, ich möchte mein Projekt kurz besprechen." : "Hi, I would like to discuss my project quickly.")}`
+  : `mailto:${contactEmail}?subject=${encodeURIComponent("Quick project message")}`;
+
+const directContactTitle = lang === "de" ? "Wählen Sie den einfachsten Kontaktweg" : "Choose the easiest way to get in touch";
+const directContactIntro = lang === "de"
+  ? "Für schnelle Abstimmung können Sie direkt anrufen oder per WhatsApp schreiben. Für strukturierte Anforderungen bleibt das Anfrageformular die beste Option."
+  : "For faster communication, call directly or send a WhatsApp message. For complete briefs, use the structured inquiry form.";
+
+const contactMethods = lang === "de"
+  ? [
+      {
+        title: "Direkter Anruf",
+        helper: "Ideal, wenn Sie Ihr Projekt live besprechen und Prioritäten direkt klären möchten.",
+        actionLabel: contactPhoneDigits ? "Jetzt anrufen" : "Rückruf anfragen",
+        href: contactPhoneHref,
+        icon: "call" as const,
+      },
+      {
+        title: "WhatsApp",
+        helper: "Perfekt für kurze Nachrichten, schnelle Rückfragen und unkomplizierte Erstabstimmung.",
+        actionLabel: contactWhatsAppRaw ? "Per WhatsApp schreiben" : "Kurznachricht senden",
+        href: contactWhatsAppHref,
+        icon: "whatsapp" as const,
+      },
+      {
+        title: "Business E-Mail",
+        helper: "Bestens geeignet für detaillierte Anfragen mit Kontext, Zielen und Rahmenbedingungen.",
+        actionLabel: "E-Mail verfassen",
+        href: `mailto:${contactEmail}`,
+        icon: "email" as const,
+      },
+    ]
+  : [
+      {
+        title: "Direct Call",
+        helper: "Best when you want to discuss scope live and align on priorities immediately.",
+        actionLabel: contactPhoneDigits ? "Call now" : "Request a callback",
+        href: contactPhoneHref,
+        icon: "call" as const,
+      },
+      {
+        title: "WhatsApp",
+        helper: "Great for quick messages, fast clarifications, and lightweight first contact.",
+        actionLabel: contactWhatsAppRaw ? "Message on WhatsApp" : "Send a quick message",
+        href: contactWhatsAppHref,
+        icon: "whatsapp" as const,
+      },
+      {
+        title: "Business Email",
+        helper: "Ideal for detailed business inquiries with project context and requirements.",
+        actionLabel: "Write an email",
+        href: `mailto:${contactEmail}`,
+        icon: "email" as const,
+      },
+    ];
 ---
 
 <Hero
@@ -437,6 +500,15 @@ const contactNextSteps = lang === "de"
             ? "Ob Website, Software oder IT-Betrieb: Sie erhalten schnell eine belastbare Ersteinschätzung statt unverbindlicher Standardantworten."
             : "Whether you need web, software, or infrastructure support, you will receive a clear and practical first assessment."}
         </p>
+
+        <div class="direct-contact-block">
+          <h3>{directContactTitle}</h3>
+          <p>{directContactIntro}</p>
+          <div class="contact-methods-grid mt-4">
+            {contactMethods.map((method) => <ContactMethodCard {...method} />)}
+          </div>
+        </div>
+
         <div>
           <h3>{lang === "de" ? "Wobei ich unterstützen kann" : "What you can contact me about"}</h3>
           <ul class="outcomes-list mt-4">
@@ -452,6 +524,10 @@ const contactNextSteps = lang === "de"
       </div>
 
       <form method="POST" action={contactAction} class="form-card section-surface reveal-up" data-contact-form data-sending-text={t("home.contactForm.sending")}>
+        <div class="form-head">
+          <p class="form-kicker">{lang === "de" ? "Strukturierte Projektanfrage" : "Structured project inquiry"}</p>
+          <h3>{lang === "de" ? "Für vollständige Anforderungen und belastbare Einschätzungen" : "Best for complete requirements and a qualified first assessment"}</h3>
+        </div>
         <input type="text" name="company" class="hidden-honeypot" />
 
         {result?.data?.success && <div class="form-message form-message--success">{t("home.contactForm.success")}</div>}
@@ -460,7 +536,7 @@ const contactNextSteps = lang === "de"
           result?.error && (
             <div class="form-message form-message--error mt-4">
               {t("home.contactForm.error")}
-              <a href="mailto:basha.IT.Solution@gmail.com" style="text-decoration:underline;"> basha.IT.Solution@gmail.com</a>.
+              <a href={`mailto:${contactEmail}`} style="text-decoration:underline;"> {contactEmail}</a>.
             </div>
           )
         }
@@ -494,7 +570,7 @@ const contactNextSteps = lang === "de"
         <div class="mt-5 contact-submit-row">
           <p class="text-soft">{t("home.contactForm.helper")}</p>
           <div class="contact-submit-group">
-            <a class="text-soft contact-email-link" href="mailto:basha.IT.Solution@gmail.com">basha.IT.Solution@gmail.com</a>
+            <a class="text-soft contact-email-link" href={`mailto:${contactEmail}`}>{contactEmail}</a>
             <Button type="submit" class="contact-submit" data-submit-btn>{t("home.contactForm.submit")}</Button>
           </div>
         </div>
