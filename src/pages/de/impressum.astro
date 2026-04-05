@@ -1,0 +1,11 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ImpressumPage from "../../components/pages/ImpressumPage.astro";
+import { t } from "../../i18n/utils";
+
+const lang = "de" as const;
+---
+
+<BaseLayout title={t(lang, "pages.impressum.title")} lang={lang}>
+  <ImpressumPage lang={lang} />
+</BaseLayout>

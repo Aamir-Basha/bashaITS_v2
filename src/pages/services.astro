@@ -1,56 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import ServicesPage from "../components/pages/ServicesPage.astro";
+import { t } from "../i18n/utils";
 
-const services = [
-  {
-    title: "Network Solutions",
-    text: "Setup, optimization, troubleshooting, and practical support for stable and efficient networks.",
-  },
-  {
-    title: "Website Development",
-    text: "Modern websites for businesses, service providers, portfolios, and digital presence upgrades.",
-  },
-  {
-    title: "App Development",
-    text: "Custom app solutions for workflows, tools, and interactive experiences tailored to your needs.",
-  },
-  {
-    title: "SaaS Development",
-    text: "Scalable software platforms, admin dashboards, portals, and business-focused web applications.",
-  },
-  {
-    title: "Technical Support",
-    text: "Reliable help with setup, bug fixing, optimization, and practical problem-solving for digital systems.",
-  },
-  {
-    title: "Consulting & Planning",
-    text: "Clear technical direction for businesses or individuals who need a smart, realistic path forward.",
-  },
-];
+const lang = "en" as const;
 ---
 
-<BaseLayout
-  title="Services | Basha IT Solutions"
-  description="Explore network, website, app, SaaS, and technical support services."
->
-  <section class="container-main pt-20 pb-16">
-    <div class="max-w-2xl">
-      <p class="mb-4 text-sm uppercase tracking-[0.18em] text-white/50">Services</p>
-      <h1 class="section-title">Solutions designed to be useful, modern, and effective</h1>
-      <p class="section-copy mt-4 text-lg">
-        Every service is focused on solving real client problems with as little unnecessary complexity as possible.
-      </p>
-    </div>
-
-    <div class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-      {
-        services.map((service) => (
-          <article class="glass rounded-[1.75rem] p-6">
-            <h2 class="text-2xl font-semibold">{service.title}</h2>
-            <p class="mt-3 text-white/65">{service.text}</p>
-          </article>
-        ))
-      }
-    </div>
-  </section>
+<BaseLayout title={t(lang, "pages.services.title")} description={t(lang, "pages.services.description")} lang={lang}>
+  <ServicesPage lang={lang} />
 </BaseLayout>

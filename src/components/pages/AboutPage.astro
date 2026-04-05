@@ -1,0 +1,17 @@
+---
+import { defaultLang, type Lang } from "../../i18n/ui";
+import { useTranslations } from "../../i18n/utils";
+
+interface Props { lang?: Lang }
+const { lang = defaultLang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="container-main pt-20 pb-16">
+  <div class="max-w-3xl">
+    <p class="mb-4 text-sm uppercase tracking-[0.18em] text-white/50">{t("about.kicker")}</p>
+    <h1 class="section-title">{t("about.title")}</h1>
+    <p class="mt-6 text-lg leading-8 text-white/70">{t("about.p1")}</p>
+    <p class="mt-4 text-lg leading-8 text-white/70">{t("about.p2")}</p>
+  </div>
+</section>
