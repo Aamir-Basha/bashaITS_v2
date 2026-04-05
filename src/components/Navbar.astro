@@ -23,36 +23,72 @@ const dePath = switchLocalePath(currentPath, "de");
 const enPath = switchLocalePath(currentPath, "en");
 ---
 
-<header class="site-header">
+<header class="site-header site-header--future">
   <Container>
-    <div class="navbar">
-      <a href={localizePath(lang, "/")} class="brand">
-        <span class="brand-mark">BI</span>
-        <span>
-          <span class="brand-name">{t("brand.name")}</span><br />
+    <div class="navbar navbar--future">
+      <a href={localizePath(lang, "/")} class="brand brand--future" aria-label={t("brand.name")}>
+        <span class="brand-mark brand-mark--future">
+          <span class="brand-mark-core">BI</span>
+          <span class="brand-mark-ring"></span>
+        </span>
+
+        <span class="brand-copy">
+          <span class="brand-name">{t("brand.name")}</span>
           <span class="brand-tagline">{t("brand.tagline")}</span>
         </span>
       </a>
 
-      <nav class="nav-links" aria-label="Main navigation">
+      <nav class="nav-links nav-links--future" aria-label="Main navigation">
         {navItems.map((item) => {
           const href = localizePath(lang, item.href);
           const isActive = currentPath === href;
-          return <a href={href} class="nav-link" aria-current={isActive ? "page" : undefined}>{item.label}</a>;
+
+          return (
+            <a
+              href={href}
+              class:list={["nav-link", "nav-link--future", isActive && "is-active"]}
+              aria-current={isActive ? "page" : undefined}
+            >
+              <span class="nav-link-label">{item.label}</span>
+              <span class="nav-link-indicator" aria-hidden="true"></span>
+            </a>
+          );
         })}
       </nav>
 
-      <div class="nav-actions">
-        <div class="language-switch">
-          <a href={enPath} class:list={["language-link", lang === "en" && "is-active"]} aria-label={`${t("nav.language")}: ${languages.en}`}>EN</a>
-          <a href={dePath} class:list={["language-link", lang === "de" && "is-active"]} aria-label={`${t("nav.language")}: ${languages.de}`}>DE</a>
+      <div class="nav-actions nav-actions--future">
+        <div class="nav-status" aria-label="Availability status">
+          <span class="nav-status-dot"></span>
+          <span>{lang === "de" ? "Verfügbar" : "Available"}</span>
         </div>
+
+        <div class="language-switch language-switch--future">
+          <a
+            href={enPath}
+            class:list={["language-link", "language-link--future", lang === "en" && "is-active"]}
+            aria-label={`${t("nav.language")}: ${languages.en}`}
+          >
+            EN
+          </a>
+          <a
+            href={dePath}
+            class:list={["language-link", "language-link--future", lang === "de" && "is-active"]}
+            aria-label={`${t("nav.language")}: ${languages.de}`}
+          >
+            DE
+          </a>
+        </div>
+
         <Button href={localizePath(lang, "/contact")}>{t("nav.cta")}</Button>
       </div>
 
-      <div class="mobile-actions">
-        <Button href={lang === "en" ? dePath : enPath} variant="secondary">{lang === "en" ? "DE" : "EN"}</Button>
-        <Button href={localizePath(lang, "/contact")} variant="secondary">{t("nav.mobileCta")}</Button>
+      <div class="mobile-actions mobile-actions--future">
+        <Button href={lang === "en" ? dePath : enPath} variant="secondary">
+          {lang === "en" ? "DE" : "EN"}
+        </Button>
+        <Button href={localizePath(lang, "/contact")} variant="secondary">
+          {t("nav.mobileCta")}
+        </Button>
       </div>
     </div>
   </Container>
