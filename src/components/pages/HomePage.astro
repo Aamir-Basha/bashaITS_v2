@@ -1,11 +1,10 @@
 ---
-import { type ActionResult } from "astro";
 import { defaultLang, type Lang } from "../../i18n/ui";
 import { localizePath, useTranslations } from "../../i18n/utils";
 
 interface Props {
   lang?: Lang;
-  result?: ActionResult;
+  result?: any;
   contactAction: string;
 }
 
