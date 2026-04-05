@@ -1,0 +1,54 @@
+---
+import Button from "./Button.astro";
+
+interface ServiceDetail {
+  title: string;
+  value: string;
+  audience: string;
+  included: string[];
+  outcomes: string[];
+  ctaLabel: string;
+  ctaHref: string;
+}
+
+interface Props {
+  service: ServiceDetail;
+  audienceLabel: string;
+  includedLabel: string;
+  outcomesLabel: string;
+}
+
+const { service, audienceLabel, includedLabel, outcomesLabel } = Astro.props;
+---
+
+<article class="service-detail-card reveal-up">
+  <div class="service-detail-head">
+    <h3 class="card-title">{service.title}</h3>
+    <p class="service-detail-value">{service.value}</p>
+  </div>
+
+  <div class="service-detail-grid mt-5">
+    <section>
+      <p class="service-detail-label">{audienceLabel}</p>
+      <p>{service.audience}</p>
+    </section>
+
+    <section>
+      <p class="service-detail-label">{includedLabel}</p>
+      <ul class="outcomes-list mt-3">
+        {service.included.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    <section>
+      <p class="service-detail-label">{outcomesLabel}</p>
+      <ul class="outcomes-list mt-3">
+        {service.outcomes.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+  </div>
+
+  <div class="mt-5">
+    <Button href={service.ctaHref}>{service.ctaLabel}</Button>
+  </div>
+</article>
