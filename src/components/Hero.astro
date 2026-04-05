@@ -1,6 +1,11 @@
 ---
 import Button from "./Button.astro";
 
+interface HeroMetric {
+  label: string;
+  value: string;
+}
+
 interface Props {
   kicker: string;
   title: string;
@@ -9,20 +14,62 @@ interface Props {
   primaryLabel: string;
   secondaryHref: string;
   secondaryLabel: string;
+  proofLabel?: string;
+  proofPoints?: string[];
+  metrics?: HeroMetric[];
 }
 
-const props = Astro.props;
+const {
+  kicker,
+  title,
+  copy,
+  primaryHref,
+  primaryLabel,
+  secondaryHref,
+  secondaryLabel,
+  proofLabel,
+  proofPoints = [],
+  metrics = [],
+} = Astro.props;
 ---
 <section class="section">
   <div class="container">
-    <div class="hero-shell">
-      <p class="section-kicker">{props.kicker}</p>
-      <h1 class="page-title">{props.title}</h1>
-      <p class="page-intro">{props.copy}</p>
+    <div class="hero-shell reveal-up">
+      <div class="hero-grid">
+        <div>
+          <p class="section-kicker">{kicker}</p>
+          <h1 class="page-title">{title}</h1>
+          <p class="page-intro">{copy}</p>
 
-      <div class="mt-6 hero-actions">
-        <Button href={props.primaryHref}>{props.primaryLabel}</Button>
-        <Button href={props.secondaryHref} variant="secondary">{props.secondaryLabel}</Button>
+          <div class="mt-6 hero-actions">
+            <Button href={primaryHref}>{primaryLabel}</Button>
+            <Button href={secondaryHref} variant="secondary">{secondaryLabel}</Button>
+          </div>
+
+          {
+            proofPoints.length > 0 && (
+              <div class="hero-proof mt-5">
+                {proofLabel && <p class="hero-proof-label">{proofLabel}</p>}
+                <ul class="hero-proof-list">
+                  {proofPoints.map((point) => <li>{point}</li>)}
+                </ul>
+              </div>
+            )
+          }
+        </div>
+
+        {
+          metrics.length > 0 && (
+            <aside class="hero-metrics" aria-label={proofLabel ?? "Client outcomes"}>
+              {metrics.map((item) => (
+                <article class="hero-metric-item">
+                  <p class="hero-metric-value">{item.value}</p>
+                  <p class="hero-metric-label">{item.label}</p>
+                </article>
+              ))}
+            </aside>
+          )
+        }
       </div>
     </div>
   </div>
