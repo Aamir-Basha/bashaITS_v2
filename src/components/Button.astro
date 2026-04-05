@@ -16,10 +16,16 @@ const {
 } = Astro.props;
 
 const classes = `btn btn--${variant} ${className}`.trim();
+const isDisabledLink = href && disabled;
 ---
 {
   href ? (
-    <a href={href} class={classes} aria-disabled={disabled ? "true" : undefined}>
+    <a
+      href={href}
+      class={classes}
+      aria-disabled={isDisabledLink ? "true" : undefined}
+      tabindex={isDisabledLink ? "-1" : undefined}
+    >
       <slot />
     </a>
   ) : (

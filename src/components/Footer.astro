@@ -22,20 +22,20 @@ const t = useTranslations(lang);
       <section>
         <h4 class="footer-heading">{t("footer.servicesHeading")}</h4>
         <ul class="footer-list">
-          <li><a href={localizePath(lang, "/services")}>{t("footer.network")}</a></li>
-          <li><a href={localizePath(lang, "/services")}>{t("footer.web")}</a></li>
-          <li><a href={localizePath(lang, "/services")}>{t("footer.app")}</a></li>
-          <li><a href={localizePath(lang, "/services")}>{t("footer.saas")}</a></li>
+          <li><a class="footer-link" href={localizePath(lang, "/services")}>{t("footer.network")}</a></li>
+          <li><a class="footer-link" href={localizePath(lang, "/services")}>{t("footer.web")}</a></li>
+          <li><a class="footer-link" href={localizePath(lang, "/services")}>{t("footer.app")}</a></li>
+          <li><a class="footer-link" href={localizePath(lang, "/services")}>{t("footer.saas")}</a></li>
         </ul>
       </section>
 
       <section>
         <h4 class="footer-heading">{t("footer.companyHeading")}</h4>
         <ul class="footer-list">
-          <li><a href={localizePath(lang, "/about")}>{t("nav.about")}</a></li>
-          <li><a href={localizePath(lang, "/contact")}>{t("nav.contact")}</a></li>
-          <li><a href={localizePath(lang, "/impressum")}>{t("footer.impressum")}</a></li>
-          <li><a href={localizePath(lang, "/datenschutz")}>{t("footer.privacy")}</a></li>
+          <li><a class="footer-link" href={localizePath(lang, "/about")}>{t("nav.about")}</a></li>
+          <li><a class="footer-link" href={localizePath(lang, "/contact")}>{t("nav.contact")}</a></li>
+          <li><a class="footer-link" href={localizePath(lang, "/impressum")}>{t("footer.impressum")}</a></li>
+          <li><a class="footer-link" href={localizePath(lang, "/datenschutz")}>{t("footer.privacy")}</a></li>
         </ul>
       </section>
     </div>

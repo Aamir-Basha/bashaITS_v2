@@ -41,7 +41,6 @@ const allStructuredData = structuredData
 <!doctype html>
 <html lang={lang}>
   <head>
-    <!-- Global document meta: change site-level metadata in src/seo/config.ts -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -49,7 +48,6 @@ const allStructuredData = structuredData
     <meta name="generator" content={Astro.generator} />
     <meta name="author" content={siteConfig.siteName} />
 
-    <!-- Page-level SEO component -->
     <SEO
       title={meta.title}
       description={meta.description}
@@ -68,15 +66,12 @@ const allStructuredData = structuredData
   </head>
 
   <body>
-    <!-- Change global top navigation style in src/components/Navbar.astro + global.css -->
     <Navbar lang={lang} />
 
-    <!-- Main page content from each route file -->
     <main class="site-main">
       <slot />
     </main>
 
-    <!-- Change global footer style in src/components/Footer.astro + global.css -->
     <Footer lang={lang} />
   </body>
 </html>
