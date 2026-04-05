@@ -1,0 +1,68 @@
+---
+export interface AlternateLink {
+  hreflang: string;
+  href: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  lang: string;
+  canonical: string;
+  alternates?: AlternateLink[];
+  image?: string;
+  type?: "website" | "article";
+  noindex?: boolean;
+  ogTitle?: string;
+  ogDescription?: string;
+  twitterTitle?: string;
+  twitterDescription?: string;
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  lang,
+  canonical,
+  alternates = [],
+  image,
+  type = "website",
+  noindex = false,
+  ogTitle,
+  ogDescription,
+  twitterTitle,
+  twitterDescription,
+  structuredData,
+} = Astro.props;
+
+const socialImage = image ?? "/favicon.svg";
+const robots = noindex ? "noindex, nofollow" : "index, follow";
+const structuredDataItems = structuredData ? (Array.isArray(structuredData) ? structuredData : [structuredData]) : [];
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="robots" content={robots} />
+<link rel="canonical" href={canonical} />
+<meta name="language" content={lang} />
+
+{alternates.map((alternate) => <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />)}
+
+<meta property="og:title" content={ogTitle ?? title} />
+<meta property="og:description" content={ogDescription ?? description} />
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={socialImage} />
+<meta property="og:locale" content={lang === "de" ? "de_DE" : "en_US"} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={twitterTitle ?? ogTitle ?? title} />
+<meta name="twitter:description" content={twitterDescription ?? ogDescription ?? description} />
+<meta name="twitter:image" content={socialImage} />
+
+{
+  structuredDataItems.map((schema) => (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+  ))
+}

@@ -1,6 +1,6 @@
 ---
 import { defaultLang, type Lang } from "../../i18n/ui";
-import { useTranslations } from "../../i18n/utils";
+import { localizePath, useTranslations } from "../../i18n/utils";
 
 interface Props { lang?: Lang }
 const { lang = defaultLang } = Astro.props;
@@ -41,3 +41,20 @@ const services = lang === "de"
     ))}
   </div>
 </section>
+
+<section class="container-main pb-20">
+  <div class="glass rounded-[1.75rem] p-8 text-center sm:p-10">
+    <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
+      {lang === "de" ? "Lassen Sie uns Ihr Projekt besprechen" : "Let's discuss your project"}
+    </h2>
+    <p class="mx-auto mt-4 max-w-2xl text-white/70">
+      {lang === "de"
+        ? "Sie suchen einen verlässlichen Partner für moderne IT-Lösungen? Schreiben Sie eine kurze Nachricht und wir klären die nächsten sinnvollen Schritte."
+        : "Need a reliable partner for modern IT delivery? Send a short message and we will define the most practical next steps."}
+    </p>
+    <a href={localizePath(lang, "/contact")} class="btn-primary mt-8 inline-flex">
+      {lang === "de" ? "Projekt anfragen" : "Start your project"}
+    </a>
+  </div>
+</section>
+

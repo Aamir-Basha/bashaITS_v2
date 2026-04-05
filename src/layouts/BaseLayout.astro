@@ -1,18 +1,41 @@
 ---
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+import SEO from "../components/SEO.astro";
 import { defaultLang, type Lang } from "../i18n/ui";
-import { t } from "../i18n/utils";
+import {
+  getAlternateUrls,
+  getCanonicalPath,
+  getCommonStructuredData,
+  getWebPageStructuredData,
+  pageSeo,
+  siteConfig,
+  toAbsoluteUrl,
+  type SeoPageKey,
+} from "../seo/config";
 import "../styles/global.css";
 
 interface Props {
-  title: string;
-  description?: string;
   lang?: Lang;
+  page: SeoPageKey;
+  image?: string;
+  noindex?: boolean;
+  type?: "website" | "article";
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const { title, description, lang = defaultLang } = Astro.props;
-const pageDescription = description ?? t(lang, "meta.defaultDescription");
+const { lang = defaultLang, page, image, noindex = false, type = "website", structuredData } = Astro.props;
+
+const siteBase = Astro.site ?? new URL(Astro.url.origin);
+const meta = pageSeo[lang][page];
+const canonicalPath = getCanonicalPath(page, lang);
+const canonicalUrl = toAbsoluteUrl(canonicalPath, siteBase);
+const alternates = getAlternateUrls(page, siteBase);
+const commonStructuredData = getCommonStructuredData(siteBase);
+const pageStructuredData = getWebPageStructuredData({ page, lang, canonical: canonicalUrl });
+const allStructuredData = structuredData
+  ? [commonStructuredData.organization, commonStructuredData.website, pageStructuredData, ...(Array.isArray(structuredData) ? structuredData : [structuredData])]
+  : [commonStructuredData.organization, commonStructuredData.website, pageStructuredData];
 ---
 
 <!doctype html>
@@ -20,8 +43,25 @@ const pageDescription = description ?? t(lang, "meta.defaultDescription");
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>{title}</title>
-    <meta name="description" content={pageDescription} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="author" content={siteConfig.siteName} />
+    <SEO
+      title={meta.title}
+      description={meta.description}
+      ogTitle={meta.ogTitle}
+      ogDescription={meta.ogDescription}
+      twitterTitle={meta.twitterTitle}
+      twitterDescription={meta.twitterDescription}
+      lang={lang}
+      canonical={canonicalUrl}
+      alternates={alternates}
+      image={image ?? siteConfig.defaultSocialImage}
+      type={type}
+      noindex={noindex}
+      structuredData={allStructuredData}
+    />
   </head>
 
   <body class="min-h-screen">
