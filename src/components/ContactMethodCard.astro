@@ -2,12 +2,13 @@
 interface Props {
   title: string;
   helper: string;
+  value?: string;
   href: string;
   actionLabel: string;
   icon?: "call" | "whatsapp" | "email";
 }
 
-const { title, helper, href, actionLabel, icon = "email" } = Astro.props;
+const { title, helper, value, href, actionLabel, icon = "email" } = Astro.props;
 
 const iconPathMap = {
   call: "M3.5 4.5a2 2 0 0 1 2-2h1.2a2 2 0 0 1 1.9 1.42l.53 1.77a2 2 0 0 1-.5 1.98l-.78.79a16 16 0 0 0 6.2 6.2l.8-.78a2 2 0 0 1 1.97-.5l1.77.53A2 2 0 0 1 20 17.3v1.2a2 2 0 0 1-2 2h-1C9.82 20.5 3.5 14.18 3.5 7V5.5z",
@@ -25,6 +26,7 @@ const iconPathMap = {
   <div class="contact-method-content">
     <h4>{title}</h4>
     <p>{helper}</p>
+    {value && <p class="contact-method-value">{value}</p>}
     <a class="contact-method-link" href={href}>{actionLabel}</a>
   </div>
 </article>

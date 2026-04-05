@@ -279,13 +279,14 @@ const contactNextSteps = lang === "de"
     ];
 
 const contactEmail = "basha.IT.Solution@gmail.com";
-const contactPhoneRaw = import.meta.env.PUBLIC_CONTACT_PHONE ?? "";
-const contactPhoneDigits = contactPhoneRaw.replace(/[^\d+]/g, "");
-const contactPhoneHref = contactPhoneDigits ? `tel:${contactPhoneDigits}` : `mailto:${contactEmail}?subject=${encodeURIComponent("Request a direct project call")}`;
-const contactWhatsAppRaw = import.meta.env.PUBLIC_WHATSAPP_NUMBER ?? contactPhoneRaw.replace(/\D/g, "");
-const contactWhatsAppHref = contactWhatsAppRaw
-  ? `https://wa.me/${contactWhatsAppRaw}?text=${encodeURIComponent(lang === "de" ? "Hallo, ich möchte mein Projekt kurz besprechen." : "Hi, I would like to discuss my project quickly.")}`
-  : `mailto:${contactEmail}?subject=${encodeURIComponent("Quick project message")}`;
+const contactPhoneInternational = import.meta.env.PUBLIC_CONTACT_PHONE_INTERNATIONAL ?? import.meta.env.PUBLIC_CONTACT_PHONE ?? "+4917671031840";
+const contactPhoneDisplay = import.meta.env.PUBLIC_CONTACT_PHONE_DISPLAY ?? "+49 176 71031840";
+const contactPhoneHref = `tel:${contactPhoneInternational.replace(/[^\d+]/g, "")}`;
+const whatsappNumber = (import.meta.env.PUBLIC_WHATSAPP_NUMBER ?? contactPhoneInternational).replace(/\D/g, "");
+const whatsappPrefilledMessage = lang === "de"
+  ? "Hallo Aamir, ich interessiere mich für eine Zusammenarbeit. Können wir kurz über mein Projekt sprechen? / Hi Aamir, I’m interested in working together. Could we briefly discuss my project?"
+  : "Hi Aamir, I’m interested in working together. Could we briefly discuss my project? / Hallo Aamir, ich interessiere mich für eine Zusammenarbeit. Können wir kurz über mein Projekt sprechen?";
+const contactWhatsAppHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappPrefilledMessage)}`;
 
 const directContactTitle = lang === "de" ? "Wählen Sie den einfachsten Kontaktweg" : "Choose the easiest way to get in touch";
 const directContactIntro = lang === "de"
@@ -297,20 +298,23 @@ const contactMethods = lang === "de"
       {
         title: "Direkter Anruf",
         helper: "Ideal, wenn Sie Ihr Projekt live besprechen und Prioritäten direkt klären möchten.",
-        actionLabel: contactPhoneDigits ? "Jetzt anrufen" : "Rückruf anfragen",
+        value: contactPhoneDisplay,
+        actionLabel: "Jetzt anrufen",
         href: contactPhoneHref,
         icon: "call" as const,
       },
       {
         title: "WhatsApp",
         helper: "Perfekt für kurze Nachrichten, schnelle Rückfragen und unkomplizierte Erstabstimmung.",
-        actionLabel: contactWhatsAppRaw ? "Per WhatsApp schreiben" : "Kurznachricht senden",
+        value: contactPhoneDisplay,
+        actionLabel: "Per WhatsApp schreiben",
         href: contactWhatsAppHref,
         icon: "whatsapp" as const,
       },
       {
         title: "Business E-Mail",
         helper: "Bestens geeignet für detaillierte Anfragen mit Kontext, Zielen und Rahmenbedingungen.",
+        value: contactEmail,
         actionLabel: "E-Mail verfassen",
         href: `mailto:${contactEmail}`,
         icon: "email" as const,
@@ -320,20 +324,23 @@ const contactMethods = lang === "de"
       {
         title: "Direct Call",
         helper: "Best when you want to discuss scope live and align on priorities immediately.",
-        actionLabel: contactPhoneDigits ? "Call now" : "Request a callback",
+        value: contactPhoneDisplay,
+        actionLabel: "Call now",
         href: contactPhoneHref,
         icon: "call" as const,
       },
       {
         title: "WhatsApp",
         helper: "Great for quick messages, fast clarifications, and lightweight first contact.",
-        actionLabel: contactWhatsAppRaw ? "Message on WhatsApp" : "Send a quick message",
+        value: contactPhoneDisplay,
+        actionLabel: "Message on WhatsApp",
         href: contactWhatsAppHref,
         icon: "whatsapp" as const,
       },
       {
         title: "Business Email",
         helper: "Ideal for detailed business inquiries with project context and requirements.",
+        value: contactEmail,
         actionLabel: "Write an email",
         href: `mailto:${contactEmail}`,
         icon: "email" as const,
