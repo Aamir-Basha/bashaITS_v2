@@ -26,7 +26,6 @@ const enPath = switchLocalePath(currentPath, "en");
 <header class="site-header">
   <Container>
     <div class="navbar">
-      <!-- Brand: change icon color/shape in .brand-mark -->
       <a href={localizePath(lang, "/")} class="brand">
         <span class="brand-mark">BI</span>
         <span>
@@ -35,13 +34,15 @@ const enPath = switchLocalePath(currentPath, "en");
         </span>
       </a>
 
-      <!-- Main desktop links -->
       <nav class="nav-links" aria-label="Main navigation">
-        {navItems.map((item) => <a href={localizePath(lang, item.href)} class="nav-link">{item.label}</a>)}
+        {navItems.map((item) => {
+          const href = localizePath(lang, item.href);
+          const isActive = currentPath === href;
+          return <a href={href} class="nav-link" aria-current={isActive ? "page" : undefined}>{item.label}</a>;
+        })}
       </nav>
 
       <div class="nav-actions">
-        <!-- Language switch colors in .language-switch and .language-link -->
         <div class="language-switch">
           <a href={enPath} class:list={["language-link", lang === "en" && "is-active"]} aria-label={`${t("nav.language")}: ${languages.en}`}>EN</a>
           <a href={dePath} class:list={["language-link", lang === "de" && "is-active"]} aria-label={`${t("nav.language")}: ${languages.de}`}>DE</a>
@@ -49,7 +50,6 @@ const enPath = switchLocalePath(currentPath, "en");
         <Button href={localizePath(lang, "/contact")}>{t("nav.cta")}</Button>
       </div>
 
-      <!-- Mobile links (simple intentionally) -->
       <div class="mobile-actions">
         <Button href={lang === "en" ? dePath : enPath} variant="secondary">{lang === "en" ? "DE" : "EN"}</Button>
         <Button href={localizePath(lang, "/contact")} variant="secondary">{t("nav.mobileCta")}</Button>

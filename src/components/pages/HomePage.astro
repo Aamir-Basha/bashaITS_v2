@@ -93,7 +93,7 @@ const featuredServices = lang === "de"
 <section class="section section--compact">
   <Container>
     <div class="grid-2" style="align-items:start;">
-      <div class="stack-md">
+      <div class="stack-md section-surface">
         <!-- Edit this text block's typography by changing .page-title and .page-intro in global.css -->
         <p class="section-kicker">{t("contact.kicker")}</p>
         <h2 class="page-title">{lang === "de" ? "Starten Sie mit einer kurzen Nachricht" : "Start with a simple message"}</h2>
@@ -105,7 +105,7 @@ const featuredServices = lang === "de"
       </div>
 
       <!-- Form styles are intentionally centralized in global.css under the Forms section -->
-      <form method="POST" action={contactAction} class="form-card" data-contact-form data-sending-text={t("home.contactForm.sending")}>
+      <form method="POST" action={contactAction} class="form-card section-surface" data-contact-form data-sending-text={t("home.contactForm.sending")}>
         <input type="text" name="company" class="hidden-honeypot" />
 
         {result?.data?.success && <div class="form-message form-message--success">{t("home.contactForm.success")}</div>}

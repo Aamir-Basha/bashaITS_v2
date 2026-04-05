@@ -15,9 +15,8 @@ const t = useTranslations(lang);
   <Container>
     <Section kicker={t("contact.kicker")} title={t("contact.title")} intro={t("contact.copy")} compact>
       <div class="grid-2">
-        <div></div>
-        <Card title={t("contact.inquiryTitle")}>
-          <!-- Restyle text spacing and typography here or in .stack-sm/.card -->
+        <div class="section-surface" aria-hidden="true"></div>
+        <Card title={t("contact.inquiryTitle")} class="section-surface">
           <div class="stack-sm">
             <p><strong>{t("contact.emailLabel")}</strong> basha.IT.Solution@gmail.com</p>
             <p><strong>{t("contact.locationLabel")}</strong> {t("brand.location")}</p>

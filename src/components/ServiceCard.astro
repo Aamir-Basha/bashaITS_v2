@@ -8,7 +8,6 @@ interface Props {
 
 const { title, text } = Astro.props;
 ---
-<!-- Restyle this service box by editing .card and .card-title in global.css -->
-<Card title={title}>
+<Card title={title} class="service-card">
   <p>{text}</p>
 </Card>
