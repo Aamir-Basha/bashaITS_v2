@@ -32,15 +32,15 @@ interface PageSeoEntry {
 export const pageSeo: Record<Lang, Record<SeoPageKey, PageSeoEntry>> = {
   en: {
     home: {
-      title: "Basha IT Solutions | Modern IT Services for Growing Businesses",
+      title: "Basha IT Solutions | Web Development, SaaS & IT Partner in Braunschweig",
       description:
-        "Basha IT Solutions delivers practical network, web, app, and SaaS development services for businesses that value reliability and clarity.",
-      ogTitle: "Basha IT Solutions | Modern IT Services for Growing Businesses",
+        "Business-focused website development, SaaS MVP engineering, and IT infrastructure support in Braunschweig for companies that need reliable digital delivery.",
+      ogTitle: "Basha IT Solutions | Web, SaaS, and IT Delivery in Braunschweig",
       ogDescription:
-        "Reliable IT services across networks, websites, apps, and SaaS platforms, delivered with a practical business-first approach.",
-      twitterTitle: "Basha IT Solutions | Modern IT Services",
+        "Premium web, software, and IT services for companies that need stronger positioning, stable systems, and measurable project outcomes.",
+      twitterTitle: "Basha IT Solutions | Web, SaaS & IT Partner",
       twitterDescription:
-        "Professional IT solutions for networks, websites, apps, and SaaS platforms.",
+        "Web development, SaaS MVPs, and infrastructure support for growing businesses in Braunschweig and beyond.",
     },
     services: {
       title: "IT Services | Network, Web, App & SaaS Development",
@@ -96,15 +96,15 @@ export const pageSeo: Record<Lang, Record<SeoPageKey, PageSeoEntry>> = {
   },
   de: {
     home: {
-      title: "Basha IT Solutions | Moderne IT-Services für wachsende Unternehmen",
+      title: "Basha IT Solutions | Webentwicklung, SaaS & IT-Partner in Braunschweig",
       description:
-        "Basha IT Solutions bietet praxisnahe IT-Leistungen für Netzwerke, Webseiten, Apps und SaaS-Plattformen – zuverlässig und verständlich umgesetzt.",
-      ogTitle: "Basha IT Solutions | Moderne IT-Services für Unternehmen",
+        "Business-orientierte Webentwicklung, SaaS-MVP-Umsetzung und IT-Infrastruktur-Support in Braunschweig für Unternehmen mit klaren Wachstumszielen.",
+      ogTitle: "Basha IT Solutions | Web, SaaS und IT-Umsetzung in Braunschweig",
       ogDescription:
-        "Zuverlässige IT-Unterstützung für Netzwerke, Webseiten, Apps und SaaS-Lösungen mit klarem Fokus auf den Geschäftsnutzen.",
-      twitterTitle: "Basha IT Solutions | Moderne IT-Services",
+        "Premium IT-Leistungen für Unternehmen, die stärkere Positionierung, stabile Systeme und messbare Ergebnisse erwarten.",
+      twitterTitle: "Basha IT Solutions | Web, SaaS & IT-Partner",
       twitterDescription:
-        "Professionelle IT-Lösungen für Netzwerke, Webseiten, Apps und SaaS-Plattformen.",
+        "Webseiten, SaaS-MVPs und Infrastruktur-Support für wachsende Unternehmen in Braunschweig und darüber hinaus.",
     },
     services: {
       title: "IT-Leistungen | Netzwerk, Web, App & SaaS Entwicklung",

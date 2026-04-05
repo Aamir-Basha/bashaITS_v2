@@ -4,10 +4,12 @@ interface Props {
   title?: string;
   intro?: string;
   compact?: boolean;
+  titleAs?: "h1" | "h2";
   class?: string;
 }
 
-const { kicker, title, intro, compact = false, class: className = "" } = Astro.props;
+const { kicker, title, intro, compact = false, titleAs = "h2", class: className = "" } = Astro.props;
+const HeadingTag = titleAs;
 ---
 <section class:list={["section", compact && "section--compact", className]}>
   <slot name="container-start" />
@@ -15,7 +17,7 @@ const { kicker, title, intro, compact = false, class: className = "" } = Astro.p
   {(kicker || title || intro) && (
     <header class="section-header">
       {kicker && <p class="section-kicker">{kicker}</p>}
-      {title && <h1 class="page-title">{title}</h1>}
+      {title && <HeadingTag class="page-title">{title}</HeadingTag>}
       {intro && <p class="page-intro">{intro}</p>}
     </header>
   )}

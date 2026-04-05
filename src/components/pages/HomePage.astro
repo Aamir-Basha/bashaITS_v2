@@ -145,40 +145,136 @@ const clientOutcomes = lang === "de"
       "One technical partner with full product context",
     ];
 
-const showcaseItems = lang === "de"
+const servicePositioning = lang === "de"
   ? [
       {
-        title: "Conversion-orientierte Unternehmenswebseite",
-        text: "Premium Web-Präsenz mit starker Positionierung, klarer Nutzerführung und Kontaktstrecke für qualifizierte Anfragen.",
-        tags: ["Positionierung", "UX", "Lead-Flow"],
+        title: "Conversion-Websites für Dienstleister & Unternehmen",
+        problem: "Viele Webseiten sehen gut aus, erzeugen aber keine qualifizierten Anfragen.",
+        solution: "Positionierung, Seitenstruktur, Copy und Conversion-Flow werden entlang realer Kaufentscheidungen aufgebaut.",
+        value: "Mehr hochwertige Erstgespräche und ein professioneller Auftritt, der Vertrauen auf den ersten Blick schafft.",
       },
       {
-        title: "Individuelles Client-Portal / SaaS-MVP",
-        text: "Geschützter Bereich für Kundenprozesse, Datenmanagement und wiederkehrende Abläufe als digitale Produktbasis.",
-        tags: ["SaaS", "Portal", "Skalierung"],
+        title: "Individuelle Business-Software & Portale",
+        problem: "Wiederkehrende Prozesse laufen über E-Mail, Tabellen und manuelle Abstimmung.",
+        solution: "Ich entwickle passgenaue interne Tools, Kundenportale oder SaaS-MVPs mit sauberem Rollen- und Datenmodell.",
+        value: "Weniger operative Reibung, schnellere Abläufe und ein digitales System, das mit Ihrem Unternehmen mitwächst.",
       },
       {
-        title: "IT- und Netzwerk-Optimierung im Bestand",
-        text: "Analyse bestehender Infrastruktur, Beseitigung von Engpässen und stabile technische Grundlage für den Alltag.",
-        tags: ["Infrastruktur", "Sicherheit", "Betrieb"],
+        title: "IT-Infrastruktur, Netzwerk & technischer Betrieb",
+        problem: "Instabile Infrastruktur und ungeklärte Verantwortlichkeiten kosten Zeit, Geld und Nerven.",
+        solution: "Analyse der bestehenden Umgebung, Priorisierung kritischer Risiken und strukturiertes Setup für Sicherheit und Stabilität.",
+        value: "Zuverlässiger Alltag im Betrieb und eine belastbare technische Basis für weiteres Wachstum.",
       },
     ]
   : [
       {
-        title: "Conversion-focused company website",
-        text: "Premium web experience with clear positioning, guided user journeys, and a contact flow built for qualified leads.",
-        tags: ["Positioning", "UX", "Lead Flow"],
+        title: "Conversion websites for service businesses",
+        problem: "Many websites look modern but fail to generate qualified inbound opportunities.",
+        solution: "Positioning, page architecture, copy, and CTA flow are designed around actual buyer decision paths.",
+        value: "More high-intent inquiries and a premium digital presence that builds trust from first visit.",
       },
       {
-        title: "Custom client portal / SaaS MVP",
-        text: "Secure environment for customer workflows, data operations, and recurring processes as a foundation for digital products.",
-        tags: ["SaaS", "Portal", "Scalability"],
+        title: "Custom business software and client portals",
+        problem: "Critical workflows often rely on spreadsheets, inboxes, and disconnected manual coordination.",
+        solution: "I build custom internal tools, client portals, and SaaS MVPs with clean permissions and resilient data architecture.",
+        value: "Lower operational overhead, faster execution, and systems that scale with your business.",
       },
       {
-        title: "IT and network performance modernization",
-        text: "Audit and optimization of current infrastructure to remove bottlenecks and build dependable day-to-day operations.",
-        tags: ["Infrastructure", "Security", "Operations"],
+        title: "IT infrastructure, network, and technical operations",
+        problem: "Unstable infrastructure and unclear ownership create recurring downtime and avoidable risk.",
+        solution: "I audit your setup, prioritize technical risk, and implement a practical reliability and security baseline.",
+        value: "Dependable day-to-day operations and a stronger technical foundation for growth initiatives.",
       },
+    ];
+
+const portfolioItems = lang === "de"
+  ? [
+      {
+        title: "Lead-optimierte B2B-Unternehmenswebsite",
+        type: "Web-Replatforming + Conversion-Optimierung",
+        challenge: "Die bestehende Seite war technisch veraltet, unklar positioniert und erzeugte kaum qualifizierte Anfragen.",
+        solution: "Neue Informationsarchitektur, klares Messaging, modulare Komponenten und eine fokussierte Kontaktstrecke.",
+        stack: "Astro, TypeScript, SEO-Structured-Data, komponentenbasiertes UI-System",
+        outcome: "Deutlich professionellerer Markenauftritt und ein klarerer Inbound-Flow für relevante Erstgespräche.",
+      },
+      {
+        title: "Kundenportal für wiederkehrende Serviceprozesse",
+        type: "Custom Portal / SaaS-MVP",
+        challenge: "Prozesse liefen manuell über E-Mail und Excel, was Reaktionszeit und Nachvollziehbarkeit reduzierte.",
+        solution: "Sicheres Portal mit Rollenrechten, strukturierten Workflows, zentralem Datenmodell und definierten Zuständigkeiten.",
+        stack: "TypeScript, API-Integration, rollenbasiertes Zugriffsmodell, skalierbare App-Architektur",
+        outcome: "Kürzere Durchlaufzeiten, bessere Transparenz für Kunden und klarere operative Steuerung im Team.",
+      },
+      {
+        title: "Netzwerk- und Betriebsmodernisierung im Bestand",
+        type: "IT-Operations & Infrastruktur-Optimierung",
+        challenge: "Wiederkehrende Störungen und fehlende Standards belasteten den täglichen Betrieb.",
+        solution: "Technischer Audit, Priorisierung kritischer Maßnahmen, Stabilitäts- und Sicherheitsverbesserungen in Etappen.",
+        stack: "Netzwerkdiagnostik, Monitoring-Baseline, Security-Hardening, dokumentierte Betriebsprozesse",
+        outcome: "Mehr Betriebssicherheit, weniger Ausfälle und eine nachvollziehbare Grundlage für zukünftige IT-Entscheidungen.",
+      },
+    ]
+  : [
+      {
+        title: "Lead-focused B2B company website",
+        type: "Web replatform + conversion optimization",
+        challenge: "The previous site was outdated, weakly positioned, and generated low-quality inbound inquiries.",
+        solution: "Rebuilt the information architecture, sharpened messaging, shipped reusable components, and redesigned contact flow.",
+        stack: "Astro, TypeScript, structured SEO data, component-driven UI system",
+        outcome: "A stronger market-facing brand presence and a clearer inbound path for qualified sales conversations.",
+      },
+      {
+        title: "Client portal for recurring service operations",
+        type: "Custom portal / SaaS MVP",
+        challenge: "Core delivery workflows were handled through email and spreadsheets, slowing response cycles.",
+        solution: "Implemented a secure portal with role-based access, structured workflows, and centralized operational data.",
+        stack: "TypeScript, API integrations, role-based permissions, scalable application architecture",
+        outcome: "Faster cycle times, better client visibility, and improved operational control for internal teams.",
+      },
+      {
+        title: "Infrastructure and network reliability modernization",
+        type: "IT operations and infrastructure optimization",
+        challenge: "Frequent disruptions and unclear technical standards were affecting day-to-day business continuity.",
+        solution: "Delivered an infrastructure audit, phased remediation roadmap, and practical security and stability improvements.",
+        stack: "Network diagnostics, monitoring baseline, security hardening, documented operational playbooks",
+        outcome: "Higher reliability, fewer incidents, and a maintainable foundation for future technical decisions.",
+      },
+    ];
+
+const technicalCapabilities = lang === "de"
+  ? [
+      { category: "Engineering", items: ["Astro / Next.js Frontends", "TypeScript Application Architecture", "API- und Datenmodell-Design"] },
+      { category: "Product Delivery", items: ["Discovery & Scope Priorisierung", "MVP-Planung mit Business-Fokus", "Release- und Wartungsstrategie"] },
+      { category: "Operations", items: ["Netzwerk- und Infrastruktur-Analyse", "Security-Baselines & Hardening", "Monitoring- und Support-Prozesse"] },
+    ]
+  : [
+      { category: "Engineering", items: ["Astro / Next.js frontends", "TypeScript application architecture", "API and data model design"] },
+      { category: "Product Delivery", items: ["Discovery and scope prioritization", "Business-focused MVP planning", "Release and maintenance strategy"] },
+      { category: "Operations", items: ["Infrastructure and network diagnostics", "Security baselines and hardening", "Monitoring and support playbooks"] },
+    ];
+
+const contactUseCases = lang === "de"
+  ? [
+      "Sie planen eine neue Website oder ein Re-Design mit messbarem Business-Ziel.",
+      "Sie wollen interne Prozesse mit einem Portal, Tool oder SaaS-MVP digitalisieren.",
+      "Ihre IT- oder Netzwerkumgebung ist instabil und benötigt eine klare Priorisierung.",
+    ]
+  : [
+      "You need a new website or redesign with clear commercial goals.",
+      "You want to digitize recurring workflows with a portal, internal tool, or SaaS MVP.",
+      "Your IT or network setup feels unstable and needs a practical remediation plan.",
+    ];
+
+const contactNextSteps = lang === "de"
+  ? [
+      "Sie senden eine kurze Anfrage mit Kontext und Ziel.",
+      "Innerhalb von 24–48h erhalten Sie eine erste Einschätzung.",
+      "In einem kurzen Call definieren wir Umfang, Prioritäten und sinnvolle nächste Schritte.",
+    ]
+  : [
+      "Send a short brief with your current situation and desired outcome.",
+      "Receive an initial assessment within 24–48 hours.",
+      "Join a focused call to define scope, priorities, and immediate next steps.",
     ];
 ---
 
@@ -198,6 +294,30 @@ const showcaseItems = lang === "de"
   proofPoints={heroProofPoints}
   metrics={heroMetrics}
 />
+
+<section class="section section--compact section-layered">
+  <Container>
+    <Section
+      kicker={lang === "de" ? "Core Services" : "Core Services"}
+      title={lang === "de" ? "Leistungen mit klarem Problem-Solution-Value-Fit" : "Services framed around business problems, technical solutions, and measurable value"}
+      intro={lang === "de"
+        ? "Jede Leistung ist auf reale Engpässe im Wachstum ausgerichtet — mit nachvollziehbarer Umsetzung statt technischer Black Box."
+        : "Every service is structured around real growth bottlenecks, with transparent delivery and business-aligned outcomes."}
+      compact
+    >
+      <div class="grid-3">
+        {servicePositioning.map((service) => (
+          <Card class="service-position-card reveal-up">
+            <h3 class="card-title">{service.title}</h3>
+            <p><strong>{lang === "de" ? "Problem:" : "Problem:"}</strong> {service.problem}</p>
+            <p class="mt-4"><strong>{lang === "de" ? "Lösung:" : "Solution:"}</strong> {service.solution}</p>
+            <p class="mt-4"><strong>{lang === "de" ? "Business-Value:" : "Business value:"}</strong> {service.value}</p>
+          </Card>
+        ))}
+      </div>
+    </Section>
+  </Container>
+</section>
 
 <section class="section section--compact section-layered">
   <Container>
@@ -260,22 +380,46 @@ const showcaseItems = lang === "de"
 <section class="section section--compact">
   <Container>
     <Section
-      kicker={lang === "de" ? "Project Showcase" : "Project Showcase"}
-      title={lang === "de" ? "Typische Leistungsbereiche mit echtem Business-Fokus" : "High-impact engagement types for real business goals"}
+      kicker={lang === "de" ? "Portfolio Proof" : "Portfolio Proof"}
+      title={lang === "de" ? "Projektbeispiele mit klarer Struktur und Business-Ergebnis" : "Portfolio-style case snapshots with clear challenge, solution, and outcomes"}
       intro={lang === "de"
-        ? "Beispiele, wie ich Projekte in klaren, umsetzbaren Modulen strukturiere."
-        : "Examples of how projects are packaged into focused delivery tracks."}
+        ? "So werden Projekte dokumentiert und geliefert: verständlich für Entscheider und belastbar für Teams."
+        : "How delivery is documented for business stakeholders and implemented for technical teams."}
+      compact
+    >
+      <div class="portfolio-grid">
+        {portfolioItems.map((item) => (
+          <Card class="showcase-card reveal-up">
+            <h3 class="card-title">{item.title}</h3>
+            <p class="portfolio-type">{item.type}</p>
+            <div class="stack-sm mt-4">
+              <p><strong>{lang === "de" ? "Challenge:" : "Challenge:"}</strong> {item.challenge}</p>
+              <p><strong>{lang === "de" ? "Solution:" : "Solution:"}</strong> {item.solution}</p>
+              <p><strong>{lang === "de" ? "Stack:" : "Stack:"}</strong> {item.stack}</p>
+              <p><strong>{lang === "de" ? "Outcome:" : "Outcome:"}</strong> {item.outcome}</p>
+            </div>
+          </Card>
+        ))}
+      </div>
+    </Section>
+  </Container>
+</section>
+
+<section class="section section--compact section-layered">
+  <Container>
+    <Section
+      kicker={lang === "de" ? "Technical Credibility" : "Technical Credibility"}
+      title={lang === "de" ? "Technische Stärken für belastbare Delivery" : "Technical strengths that support reliable delivery"}
       compact
     >
       <div class="grid-3">
-        {showcaseItems.map((item) => (
-          <Card class="showcase-card reveal-up">
-            <h3 class="card-title">{item.title}</h3>
-            <p>{item.text}</p>
-            <ul class="tag-list mt-4">
-              {item.tags.map((tag) => <li>{tag}</li>)}
+        {technicalCapabilities.map((group) => (
+          <article class="tech-capability reveal-up">
+            <p class="process-phase">{group.category}</p>
+            <ul class="outcomes-list mt-4">
+              {group.items.map((item) => <li>{item}</li>)}
             </ul>
-          </Card>
+          </article>
         ))}
       </div>
     </Section>
@@ -287,12 +431,24 @@ const showcaseItems = lang === "de"
     <div class="grid-2" style="align-items:start;">
       <div class="stack-md section-surface reveal-up">
         <p class="section-kicker">{t("contact.kicker")}</p>
-        <h2 class="page-title">{lang === "de" ? "Starten Sie mit einer kurzen Nachricht" : "Start with a focused project inquiry"}</h2>
+        <h2 class="page-title">{lang === "de" ? "Einfach anfragen — wir klären den Rest strukturiert" : "Reach out in minutes — get a structured next-step plan"}</h2>
         <p>
           {lang === "de"
-            ? "Sie erhalten eine strukturierte Ersteinschätzung inklusive sinnvoller nächster Schritte. Egal ob Webseite, App, SaaS, IT-Infrastruktur oder Automatisierung."
-            : "You will receive a structured first assessment and clear next steps — whether you need a website, app, SaaS product, IT infrastructure support, or process automation."}
+            ? "Ob Website, Software oder IT-Betrieb: Sie erhalten schnell eine belastbare Ersteinschätzung statt unverbindlicher Standardantworten."
+            : "Whether you need web, software, or infrastructure support, you will receive a clear and practical first assessment."}
         </p>
+        <div>
+          <h3>{lang === "de" ? "Wobei ich unterstützen kann" : "What you can contact me about"}</h3>
+          <ul class="outcomes-list mt-4">
+            {contactUseCases.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+        <div>
+          <h3>{lang === "de" ? "So geht es nach Ihrer Anfrage weiter" : "What happens after you contact me"}</h3>
+          <ol class="contact-steps mt-4">
+            {contactNextSteps.map((item) => <li>{item}</li>)}
+          </ol>
+        </div>
       </div>
 
       <form method="POST" action={contactAction} class="form-card section-surface reveal-up" data-contact-form data-sending-text={t("home.contactForm.sending")}>
@@ -335,9 +491,12 @@ const showcaseItems = lang === "de"
           </div>
         </div>
 
-        <div class="mt-5" style="display:flex; gap:1rem; align-items:center; justify-content:space-between; flex-wrap:wrap;">
+        <div class="mt-5 contact-submit-row">
           <p class="text-soft">{t("home.contactForm.helper")}</p>
-          <Button type="submit" class="contact-submit" data-submit-btn>{t("home.contactForm.submit")}</Button>
+          <div class="contact-submit-group">
+            <a class="text-soft contact-email-link" href="mailto:basha.IT.Solution@gmail.com">basha.IT.Solution@gmail.com</a>
+            <Button type="submit" class="contact-submit" data-submit-btn>{t("home.contactForm.submit")}</Button>
+          </div>
         </div>
       </form>
     </div>
