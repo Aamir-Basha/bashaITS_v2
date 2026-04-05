@@ -35,54 +35,246 @@ const serviceOptions = lang === "de"
       ["not-sure-yet", "Not sure yet"],
     ];
 
-const featuredServices = lang === "de"
+const heroProofPoints = lang === "de"
+  ? ["Klare Roadmap statt Fachjargon", "Messbarer Business-Fokus", "Umsetzung von einer verantwortlichen Stelle"]
+  : ["Clear roadmap instead of technical noise", "Business-first outcomes you can measure", "One accountable partner from discovery to launch"];
+
+const heroMetrics = lang === "de"
+  ? [
+      { value: "48h", label: "für eine erste technische Einschätzung" },
+      { value: "End-to-End", label: "von Strategie bis Deployment" },
+      { value: "100%", label: "individuell statt Baukasten-Templates" },
+    ]
+  : [
+      { value: "48h", label: "for an initial technical assessment" },
+      { value: "End-to-End", label: "from strategy to deployment" },
+      { value: "100%", label: "custom implementation over templates" },
+    ];
+
+const whyWorkWithMe = lang === "de"
   ? [
       {
-        title: "Netzwerk-Setup & Optimierung",
-        text: "Praxisnahe Unterstützung für Router, WLAN, lokale Infrastruktur und Verbindungsprobleme.",
+        title: "Business-Verständnis + technische Tiefe",
+        text: "Ich übersetze Unternehmensziele in saubere technische Entscheidungen, damit Projekte nicht nur funktionieren, sondern wirtschaftlich sinnvoll sind.",
       },
       {
-        title: "Webseiten- & App-Entwicklung",
-        text: "Klare, moderne und responsive Erlebnisse für einen professionellen Auftritt.",
+        title: "Senior-Level Umsetzung ohne Agentur-Ballast",
+        text: "Sie arbeiten direkt mit der umsetzenden Person. Das reduziert Reibung, beschleunigt Entscheidungen und hält Qualität konstant hoch.",
       },
       {
-        title: "SaaS & Individuelle Plattformen",
-        text: "Individuelle Systeme, Portale, Dashboards und Produktideen werden greifbar umgesetzt.",
+        title: "Stabilität, Sicherheit und Wartbarkeit",
+        text: "Architektur, Code-Struktur und Infrastruktur werden so geplant, dass Ihr System zuverlässig skaliert und langfristig betreibbar bleibt.",
       },
     ]
   : [
       {
-        title: "Network Setup & Optimization",
-        text: "Practical support for routers, Wi-Fi, local infrastructure, and connectivity issues.",
+        title: "Business strategy paired with technical depth",
+        text: "I translate business priorities into architecture decisions so your project is not only functional, but commercially effective.",
       },
       {
-        title: "Website & App Development",
-        text: "Clean, modern, responsive experiences that help businesses look professional.",
+        title: "Senior execution without agency overhead",
+        text: "You work directly with the person building your solution. Fewer handoffs means faster decisions and consistently high quality.",
       },
       {
-        title: "SaaS & Custom Platforms",
-        text: "Tailored systems, portals, dashboards, and product ideas brought to life.",
+        title: "Built for stability, security, and maintainability",
+        text: "Code structure, infrastructure, and release workflow are planned to keep your platform dependable as you grow.",
+      },
+    ];
+
+const processSteps = lang === "de"
+  ? [
+      {
+        phase: "Schritt 1",
+        title: "Discovery & Zieldefinition",
+        text: "Wir klären Anforderungen, Risiken, Prioritäten und Erfolgskriterien, bevor umgesetzt wird.",
+      },
+      {
+        phase: "Schritt 2",
+        title: "Lösungsdesign & technische Roadmap",
+        text: "Sie erhalten eine klare Struktur zu Architektur, Umfang, Zeitplan und den nächsten Entscheidungen.",
+      },
+      {
+        phase: "Schritt 3",
+        title: "Entwicklung mit transparenten Meilensteinen",
+        text: "Lieferung in nachvollziehbaren Etappen mit laufendem Feedback statt Black-Box-Prozess.",
+      },
+      {
+        phase: "Schritt 4",
+        title: "Launch, Optimierung & Support",
+        text: "Nach dem Go-live begleite ich Stabilität, Performance und sinnvolle Weiterentwicklung.",
+      },
+    ]
+  : [
+      {
+        phase: "Step 1",
+        title: "Discovery and objective definition",
+        text: "We align on goals, constraints, risks, and success criteria before implementation starts.",
+      },
+      {
+        phase: "Step 2",
+        title: "Solution architecture and technical roadmap",
+        text: "You get a clear implementation plan covering architecture, scope, timeline, and key decisions.",
+      },
+      {
+        phase: "Step 3",
+        title: "Build phase with transparent milestones",
+        text: "Delivery happens in visible increments so you maintain control and context throughout execution.",
+      },
+      {
+        phase: "Step 4",
+        title: "Launch, optimization, and support",
+        text: "After release, I support reliability, performance, and intentional iteration based on real usage.",
+      },
+    ];
+
+const clientOutcomes = lang === "de"
+  ? [
+      "Klare technische Entscheidungen ohne Überforderung",
+      "Schnellere Umsetzung mit klarer Verantwortung",
+      "Ein professioneller, vertrauenswürdiger digitaler Auftritt",
+      "Skalierbare Grundlage für neue Features und Automationen",
+      "Dokumentierte Prozesse für Betrieb und Weiterentwicklung",
+      "Ein Ansprechpartner mit Gesamtüberblick statt Silos",
+    ]
+  : [
+      "Confident technical decisions without overwhelm",
+      "Faster delivery through direct accountability",
+      "A digital presence that increases client trust",
+      "A scalable foundation for automation and new features",
+      "Documented systems your team can operate long-term",
+      "One technical partner with full product context",
+    ];
+
+const showcaseItems = lang === "de"
+  ? [
+      {
+        title: "Conversion-orientierte Unternehmenswebseite",
+        text: "Premium Web-Präsenz mit starker Positionierung, klarer Nutzerführung und Kontaktstrecke für qualifizierte Anfragen.",
+        tags: ["Positionierung", "UX", "Lead-Flow"],
+      },
+      {
+        title: "Individuelles Client-Portal / SaaS-MVP",
+        text: "Geschützter Bereich für Kundenprozesse, Datenmanagement und wiederkehrende Abläufe als digitale Produktbasis.",
+        tags: ["SaaS", "Portal", "Skalierung"],
+      },
+      {
+        title: "IT- und Netzwerk-Optimierung im Bestand",
+        text: "Analyse bestehender Infrastruktur, Beseitigung von Engpässen und stabile technische Grundlage für den Alltag.",
+        tags: ["Infrastruktur", "Sicherheit", "Betrieb"],
+      },
+    ]
+  : [
+      {
+        title: "Conversion-focused company website",
+        text: "Premium web experience with clear positioning, guided user journeys, and a contact flow built for qualified leads.",
+        tags: ["Positioning", "UX", "Lead Flow"],
+      },
+      {
+        title: "Custom client portal / SaaS MVP",
+        text: "Secure environment for customer workflows, data operations, and recurring processes as a foundation for digital products.",
+        tags: ["SaaS", "Portal", "Scalability"],
+      },
+      {
+        title: "IT and network performance modernization",
+        text: "Audit and optimization of current infrastructure to remove bottlenecks and build dependable day-to-day operations.",
+        tags: ["Infrastructure", "Security", "Operations"],
       },
     ];
 ---
 
 <Hero
-  kicker={t("home.hero.kicker")}
-  title={t("home.hero.title")}
-  copy={t("home.hero.copy")}
+  kicker={lang === "de" ? "Strategischer Technologiepartner für Wachstum" : "Strategic technology partner for ambitious growth"}
+  title={lang === "de"
+    ? "Web, Software und IT-Systeme, die Vertrauen schaffen und Umsatz unterstützen"
+    : "Web, software, and IT systems engineered to build trust and drive revenue"}
+  copy={lang === "de"
+    ? "Ich entwickle digitale Lösungen für Unternehmen, die mehr als nur eine schöne Oberfläche wollen: klare Prozesse, starke Nutzererlebnisse und belastbare Technik als Wettbewerbsvorteil."
+    : "I build digital solutions for businesses that need more than a polished interface: clear processes, conversion-ready user experiences, and reliable technology that supports real growth."}
   primaryHref={localizePath(lang, "/contact")}
-  primaryLabel={t("home.hero.ctaPrimary")}
+  primaryLabel={lang === "de" ? "Kostenlose Erstberatung" : "Book a Discovery Call"}
   secondaryHref={localizePath(lang, "/services")}
-  secondaryLabel={t("home.hero.ctaSecondary")}
+  secondaryLabel={lang === "de" ? "Services ansehen" : "View Services"}
+  proofLabel={lang === "de" ? "Warum Entscheider mit mir arbeiten" : "Why decision-makers choose this approach"}
+  proofPoints={heroProofPoints}
+  metrics={heroMetrics}
 />
+
+<section class="section section--compact section-layered">
+  <Container>
+    <Section
+      kicker={lang === "de" ? "Why Work With Me" : "Why Work With Me"}
+      title={lang === "de" ? "Technische Umsetzung mit klarer Business-Verantwortung" : "Technical execution with business-level accountability"}
+      compact
+    >
+      <div class="grid-3">
+        {whyWorkWithMe.map((item) => (
+          <Card class="reveal-up">
+            <h3 class="card-title">{item.title}</h3>
+            <p>{item.text}</p>
+          </Card>
+        ))}
+      </div>
+    </Section>
+  </Container>
+</section>
 
 <section class="section section--compact">
   <Container>
-    <Section kicker={t("home.featured.label")} title={t("home.featured.title")} compact>
+    <Section
+      kicker={lang === "de" ? "How I Work" : "How I Work"}
+      title={lang === "de" ? "Ein strukturierter Prozess für planbare Ergebnisse" : "A structured delivery process for predictable outcomes"}
+      intro={lang === "de"
+        ? "Jedes Projekt folgt einem klaren Framework, damit Qualität, Tempo und Transparenz gleichzeitig möglich sind."
+        : "Every engagement follows a clear framework so quality, speed, and transparency stay aligned."}
+      compact
+    >
+      <div class="process-grid">
+        {processSteps.map((step) => (
+          <article class="process-card reveal-up">
+            <p class="process-phase">{step.phase}</p>
+            <h3>{step.title}</h3>
+            <p>{step.text}</p>
+          </article>
+        ))}
+      </div>
+    </Section>
+  </Container>
+</section>
+
+<section class="section section--compact section-layered">
+  <Container>
+    <Section
+      kicker={lang === "de" ? "What Clients Get" : "What Clients Get"}
+      title={lang === "de" ? "Mehr als Code: ein verlässliches Umsetzungssystem" : "More than code: a reliable system for execution"}
+      compact
+    >
+      <div class="section-surface outcomes-surface reveal-up">
+        <ul class="outcomes-list">
+          {clientOutcomes.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </Section>
+  </Container>
+</section>
+
+<section class="section section--compact">
+  <Container>
+    <Section
+      kicker={lang === "de" ? "Project Showcase" : "Project Showcase"}
+      title={lang === "de" ? "Typische Leistungsbereiche mit echtem Business-Fokus" : "High-impact engagement types for real business goals"}
+      intro={lang === "de"
+        ? "Beispiele, wie ich Projekte in klaren, umsetzbaren Modulen strukturiere."
+        : "Examples of how projects are packaged into focused delivery tracks."}
+      compact
+    >
       <div class="grid-3">
-        {featuredServices.map((service) => (
-          <Card title={service.title}>
-            <p>{service.text}</p>
+        {showcaseItems.map((item) => (
+          <Card class="showcase-card reveal-up">
+            <h3 class="card-title">{item.title}</h3>
+            <p>{item.text}</p>
+            <ul class="tag-list mt-4">
+              {item.tags.map((tag) => <li>{tag}</li>)}
+            </ul>
           </Card>
         ))}
       </div>
@@ -93,19 +285,17 @@ const featuredServices = lang === "de"
 <section class="section section--compact">
   <Container>
     <div class="grid-2" style="align-items:start;">
-      <div class="stack-md section-surface">
-        <!-- Edit this text block's typography by changing .page-title and .page-intro in global.css -->
+      <div class="stack-md section-surface reveal-up">
         <p class="section-kicker">{t("contact.kicker")}</p>
-        <h2 class="page-title">{lang === "de" ? "Starten Sie mit einer kurzen Nachricht" : "Start with a simple message"}</h2>
+        <h2 class="page-title">{lang === "de" ? "Starten Sie mit einer kurzen Nachricht" : "Start with a focused project inquiry"}</h2>
         <p>
           {lang === "de"
-            ? "Ob Webseite, App, SaaS-Plattform, Netzwerksupport oder eine erste Idee: Sie müssen noch nicht alles perfekt ausgearbeitet haben."
-            : "Whether you need a website, app, SaaS platform, network support, or just want to discuss an idea, you do not need to have everything figured out yet."}
+            ? "Sie erhalten eine strukturierte Ersteinschätzung inklusive sinnvoller nächster Schritte. Egal ob Webseite, App, SaaS, IT-Infrastruktur oder Automatisierung."
+            : "You will receive a structured first assessment and clear next steps — whether you need a website, app, SaaS product, IT infrastructure support, or process automation."}
         </p>
       </div>
 
-      <!-- Form styles are intentionally centralized in global.css under the Forms section -->
-      <form method="POST" action={contactAction} class="form-card section-surface" data-contact-form data-sending-text={t("home.contactForm.sending")}>
+      <form method="POST" action={contactAction} class="form-card section-surface reveal-up" data-contact-form data-sending-text={t("home.contactForm.sending")}>
         <input type="text" name="company" class="hidden-honeypot" />
 
         {result?.data?.success && <div class="form-message form-message--success">{t("home.contactForm.success")}</div>}
@@ -155,10 +345,12 @@ const featuredServices = lang === "de"
 </section>
 
 <ContactCTA
-  title={lang === "de" ? "Sie haben Fragen zu Ihrem Vorhaben?" : "Have questions about your project?"}
-  text={lang === "de" ? "Senden Sie eine kurze Nachricht und erhalten Sie einen klaren nächsten Schritt." : "Send a short message and get a clear next step."}
+  title={lang === "de" ? "Sie möchten ein belastbares digitales Fundament aufbauen?" : "Ready to build a stronger digital foundation for your business?"}
+  text={lang === "de"
+    ? "Lassen Sie uns in einem kurzen Gespräch klären, welche Lösung den größten geschäftlichen Hebel für Sie bietet."
+    : "Let’s identify the highest-leverage next step for your website, software stack, or IT operations in a short discovery call."}
   href={localizePath(lang, "/contact")}
-  buttonLabel={lang === "de" ? "Kontakt aufnehmen" : "Contact now"}
+  buttonLabel={lang === "de" ? "Strategiegespräch starten" : "Start Your Strategy Call"}
 />
 
 <script>
@@ -172,4 +364,25 @@ const featuredServices = lang === "de"
       submitButton.textContent = sendingText;
     }
   });
+
+  const revealElements = document.querySelectorAll('.reveal-up');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.18 },
+    );
+
+    revealElements.forEach((element) => observer.observe(element));
+  } else {
+    revealElements.forEach((element) => element.classList.add('is-visible'));
+  }
 </script>
