@@ -31,7 +31,7 @@ const services = lang === "de"
 
 <section class="section">
   <Container>
-    <Section kicker={t("services.kicker")} title={t("services.title")} intro={t("services.copy")} compact>
+    <Section kicker={t("services.kicker")} title={t("services.title")} intro={t("services.copy")} titleAs="h1" compact>
       <div class="grid-3" style="align-items:stretch;">
         {services.map((service) => <ServiceCard title={service.title} text={service.text} />)}
       </div>
