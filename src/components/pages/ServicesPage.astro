@@ -1,49 +1,522 @@
 ---
+import Button from "../Button.astro";
+import Card from "../Card.astro";
 import ContactCTA from "../ContactCTA.astro";
 import Container from "../Container.astro";
+import Hero from "../Hero.astro";
 import Section from "../Section.astro";
-import ServiceCard from "../ServiceCard.astro";
+import ServiceDetailBlock from "../ServiceDetailBlock.astro";
 import { defaultLang, type Lang } from "../../i18n/ui";
-import { localizePath, useTranslations } from "../../i18n/utils";
+import { localizePath } from "../../i18n/utils";
 
 interface Props { lang?: Lang }
 const { lang = defaultLang } = Astro.props;
-const t = useTranslations(lang);
 
-const services = lang === "de"
-  ? [
-      { title: "Netzwerklösungen", text: "Einrichtung, Optimierung, Fehleranalyse und praxisnaher Support für stabile und effiziente Netzwerke." },
-      { title: "Webseiten-Entwicklung", text: "Moderne Webseiten für Unternehmen, Dienstleister, Portfolios und den professionellen Online-Auftritt." },
-      { title: "App-Entwicklung", text: "Individuelle App-Lösungen für Workflows, Werkzeuge und interaktive Erlebnisse passend zu Ihren Anforderungen." },
-      { title: "SaaS-Entwicklung", text: "Skalierbare Software-Plattformen, Admin-Dashboards, Portale und webbasierte Business-Anwendungen." },
-      { title: "Technischer Support", text: "Zuverlässige Unterstützung bei Einrichtung, Fehlerbehebung, Optimierung und technischen Herausforderungen." },
-      { title: "Beratung & Planung", text: "Klare technische Ausrichtung für Unternehmen und Einzelpersonen mit einem realistischen, umsetzbaren Weg." },
-    ]
-  : [
-      { title: "Network Solutions", text: "Setup, optimization, troubleshooting, and practical support for stable and efficient networks." },
-      { title: "Website Development", text: "Modern websites for businesses, service providers, portfolios, and digital presence upgrades." },
-      { title: "App Development", text: "Custom app solutions for workflows, tools, and interactive experiences tailored to your needs." },
-      { title: "SaaS Development", text: "Scalable software platforms, admin dashboards, portals, and business-focused web applications." },
-      { title: "Technical Support", text: "Reliable help with setup, bug fixing, optimization, and practical problem-solving for digital systems." },
-      { title: "Consulting & Planning", text: "Clear technical direction for businesses or individuals who need a smart, realistic path forward." },
-    ];
+const content = lang === "de"
+  ? {
+      hero: {
+        kicker: "Premium IT & Software Services",
+        title: "Leistungen, die aus Technik messbare Business-Ergebnisse machen",
+        copy: "Für Unternehmen, die Websites, Software und IT-Systeme nicht als Kostenfaktor sehen, sondern als Wachstumshebel für Vertrieb, Effizienz und Vertrauen.",
+        primaryLabel: "Kostenlose Erstberatung",
+        secondaryLabel: "Projektbeispiele ansehen",
+        proofLabel: "Warum Entscheider mit mir arbeiten",
+        proofPoints: [
+          "Direkte Zusammenarbeit ohne Agentur-Overhead",
+          "Technische Klarheit statt Buzzwords",
+          "Business-Fokus von Discovery bis Launch",
+        ],
+        metrics: [
+          { value: "24–48h", label: "erste qualifizierte Einschätzung" },
+          { value: "Senior-Level", label: "Strategie und Umsetzung aus einer Hand" },
+          { value: "End-to-End", label: "von Architektur bis Betrieb" },
+        ],
+      },
+      services: {
+        kicker: "Service Offerings",
+        title: "Leistungen mit klarer Positionierung, Scope und Business-Nutzen",
+        intro: "Jede Leistung folgt derselben Struktur: Zielbild, saubere Umsetzung und ein Ergebnis, das im Alltag spürbar ist.",
+        audienceLabel: "Für wen es geeignet ist",
+        includedLabel: "Leistungsumfang",
+        outcomesLabel: "Typische Ergebnisse",
+        items: [
+          {
+            title: "Conversion-Website & Corporate Web Presence",
+            value: "Ein digitaler Auftritt, der Vertrauen aufbaut und qualifizierte Anfragen erzeugt.",
+            audience: "Dienstleister, Beratungen, B2B-Unternehmen und lokale Anbieter, die ihren Marktauftritt professionalisieren wollen.",
+            included: [
+              "Positionierung, Seitenstruktur und Messaging-Framework",
+              "Modulares Frontend mit SEO-Basis und Performance-Fokus",
+              "Kontakt- und Conversion-Flow für konkrete Anfragen",
+              "Saubere Übergabe inkl. Content- und Wartungsrichtlinien",
+            ],
+            outcomes: [
+              "Höhere Qualität eingehender Leads",
+              "Stärkeres Vertrauen bei Erstkontakt",
+              "Ein wartbarer Web-Stack für zukünftiges Wachstum",
+            ],
+            ctaLabel: "Website-Projekt starten",
+            ctaHref: localizePath(lang, "/contact"),
+          },
+          {
+            title: "Custom Software, Portale & SaaS MVPs",
+            value: "Individuelle Software, die operative Reibung reduziert und Prozesse skalierbar macht.",
+            audience: "Teams mit wiederkehrenden Workflows, die aktuell über E-Mail, Tabellen oder mehrere Tools verteilt laufen.",
+            included: [
+              "Discovery, Scope-Zuschnitt und Priorisierung der Kernfunktionen",
+              "Produktionsreife Architektur mit Rollen- und Datenmodell",
+              "Implementierung von Workflows, Integrationen und Dashboards",
+              "Testing, Launch-Begleitung und klare Weiterentwicklungsroadmap",
+            ],
+            outcomes: [
+              "Schnellere Abläufe und weniger manuelle Abstimmung",
+              "Transparente Datenlage für operative Entscheidungen",
+              "Skalierbare Grundlage für neue Features und Automationen",
+            ],
+            ctaLabel: "Software-Lösung besprechen",
+            ctaHref: localizePath(lang, "/contact"),
+          },
+          {
+            title: "IT Operations, Netzwerk & technischer Support",
+            value: "Stabile technische Grundlagen, damit Ihr Team ohne Unterbrechungen arbeiten kann.",
+            audience: "Unternehmen mit instabiler Infrastruktur, Sicherheitslücken oder ungeklärten technischen Verantwortlichkeiten.",
+            included: [
+              "Audit der bestehenden Umgebung und Priorisierung kritischer Risiken",
+              "Praktische Verbesserungen für Stabilität, Monitoring und Security",
+              "Dokumentierte Betriebsprozesse und klare Notfallpfade",
+              "Laufende technische Begleitung bei Veränderungen im Betrieb",
+            ],
+            outcomes: [
+              "Weniger Ausfälle und schnellere Problemlösung",
+              "Mehr Sicherheit in täglichen Abläufen",
+              "Belastbare technische Basis für Wachstumsvorhaben",
+            ],
+            ctaLabel: "IT-Betrieb stabilisieren",
+            ctaHref: localizePath(lang, "/contact"),
+          },
+        ],
+      },
+      audiences: {
+        kicker: "Who I Work With",
+        title: "Typische Kundentypen, die am meisten profitieren",
+        intro: "Wenn Sie sich hier wiederfinden, passt die Zusammenarbeit meist sehr gut.",
+        items: [
+          {
+            title: "Wachsende Dienstleistungsunternehmen",
+            text: "Sie benötigen einen professionellen Marktauftritt und klarere digitale Prozesse, um mit dem Wachstum Schritt zu halten.",
+          },
+          {
+            title: "B2B-Teams mit operativen Engpässen",
+            text: "Sie verlieren Zeit durch manuelle Abstimmung und brauchen passgenaue Software statt Tool-Flickwerk.",
+          },
+          {
+            title: "Unternehmen mit kritischer IT-Abhängigkeit",
+            text: "Sie brauchen Stabilität, Sicherheit und klare technische Verantwortung für den täglichen Betrieb.",
+          },
+        ],
+      },
+      process: {
+        kicker: "How I Work",
+        title: "Ein klarer Prozess für planbare Ergebnisse",
+        intro: "Sie wissen jederzeit, woran gearbeitet wird, warum es priorisiert ist und was als Nächstes kommt.",
+        steps: [
+          { phase: "Schritt 1", title: "Discovery & Ziele", text: "Wir definieren geschäftliche Ziele, Nutzerkontext, technische Risiken und Erfolgskriterien." },
+          { phase: "Schritt 2", title: "Roadmap & Scope", text: "Sie erhalten einen transparenten Delivery-Plan mit Umfang, Meilensteinen und Entscheidungslogik." },
+          { phase: "Schritt 3", title: "Build & Feedback", text: "Umsetzung in nachvollziehbaren Etappen mit regelmäßigen Updates statt Black-Box-Entwicklung." },
+          { phase: "Schritt 4", title: "Launch & Optimierung", text: "Nach dem Go-live folgt gezielte Stabilisierung, Feintuning und sinnvolle Weiterentwicklung." },
+        ],
+      },
+      trust: {
+        kicker: "Why Clients Choose Me",
+        title: "Warum Kunden mich als langfristigen Technologiepartner wählen",
+        points: [
+          "Klare Kommunikation für Entscheider und Teams ohne unnötigen Fachjargon",
+          "Hoher Qualitätsanspruch in Architektur, Code-Struktur und technischer Dokumentation",
+          "Verlässliche Umsetzung mit realistischen Zusagen statt überzogener Versprechen",
+          "Pragmatische Lösungen, die im realen Tagesgeschäft funktionieren",
+        ],
+      },
+      examples: {
+        kicker: "Use-Case Examples",
+        title: "Beispiele für Lösungen, die ich typischerweise umsetze",
+        intro: "Diese Szenarien zeigen, wie Leistungen in konkreten Geschäftsproblemen eingesetzt werden.",
+        cases: [
+          {
+            title: "Lead-getriebene Website für ein B2B-Serviceunternehmen",
+            challenge: "Kaum qualifizierte Anfragen trotz bestehender Website.",
+            solution: "Neue Positionierung, konversionsstarke Seitenstruktur und fokussierte Anfrage-Route.",
+            result: "Mehr relevante Erstgespräche und ein deutlich professionellerer Markteindruck.",
+          },
+          {
+            title: "Kundenportal zur Entlastung interner Abläufe",
+            challenge: "Anfragen und Status-Updates wurden manuell per E-Mail koordiniert.",
+            solution: "Rollenbasiertes Portal mit zentralem Workflow und nachvollziehbaren Statusübergängen.",
+            result: "Kürzere Bearbeitungszeiten, weniger Abstimmungsaufwand und bessere Transparenz.",
+          },
+          {
+            title: "Stabilisierung einer störanfälligen IT-Umgebung",
+            challenge: "Wiederkehrende Ausfälle behinderten den operativen Betrieb.",
+            solution: "Technischer Audit, priorisierte Maßnahmen und Monitoring-basierte Betriebsroutine.",
+            result: "Weniger Incidents, höhere Betriebssicherheit und besser planbare IT-Entscheidungen.",
+          },
+        ],
+      },
+      faq: {
+        kicker: "FAQ",
+        title: "Häufige Fragen vor dem Projektstart",
+        items: [
+          {
+            q: "Arbeiten Sie nur an großen Projekten?",
+            a: "Nein. Ich begleite sowohl fokussierte Einzelprojekte als auch größere Vorhaben, wenn Scope und Ziel klar definiert sind.",
+          },
+          {
+            q: "Wie schnell bekomme ich eine erste Einschätzung?",
+            a: "In der Regel innerhalb von 24 bis 48 Stunden nach Ihrer Anfrage inklusive Empfehlung für die nächsten sinnvollen Schritte.",
+          },
+          {
+            q: "Können Sie bestehende Systeme verbessern statt neu bauen?",
+            a: "Ja. Viele Aufträge beginnen mit Audit, Optimierung oder Re-Design bestehender Systeme und werden nur dort neu aufgebaut, wo es notwendig ist.",
+          },
+          {
+            q: "Wie läuft die Zusammenarbeit praktisch ab?",
+            a: "Sie erhalten einen klaren Projektplan, regelmäßige Status-Updates und direkte Kommunikation mit der umsetzenden Person.",
+          },
+        ],
+      },
+      finalCta: {
+        title: "Lassen Sie uns den sinnvollsten nächsten Schritt für Ihr Projekt definieren",
+        text: "Senden Sie kurz Ihr Ziel und Ihre aktuelle Situation. Sie erhalten eine strukturierte Ersteinschätzung mit klarer Empfehlung.",
+        primary: "Unverbindliches Erstgespräch buchen",
+        secondary: "Kontakt aufnehmen",
+      },
+    }
+  : {
+      hero: {
+        kicker: "Premium IT & Software Services",
+        title: "Services designed to turn technology into measurable business outcomes",
+        copy: "For businesses that see websites, software, and IT systems as growth infrastructure—not just technical overhead.",
+        primaryLabel: "Book a Discovery Call",
+        secondaryLabel: "View project examples",
+        proofLabel: "Why business leaders hire me",
+        proofPoints: [
+          "Direct collaboration without agency overhead",
+          "Technical clarity over buzzwords",
+          "Business-first execution from discovery to launch",
+        ],
+        metrics: [
+          { value: "24–48h", label: "for an initial qualified assessment" },
+          { value: "Senior-Level", label: "strategy and execution by one partner" },
+          { value: "End-to-End", label: "from architecture to operations" },
+        ],
+      },
+      services: {
+        kicker: "Service Offerings",
+        title: "Services with clear scope, positioning, and commercial impact",
+        intro: "Each service is structured around one principle: aligned goals, clean implementation, and outcomes that matter in operations.",
+        audienceLabel: "Who it is for",
+        includedLabel: "What is included",
+        outcomesLabel: "Likely outcomes",
+        items: [
+          {
+            title: "Conversion Website & Corporate Web Presence",
+            value: "A premium digital presence built to increase trust and qualified inbound opportunities.",
+            audience: "Service firms, consultants, B2B companies, and local businesses that need stronger positioning and better lead quality.",
+            included: [
+              "Positioning, page architecture, and messaging framework",
+              "Modular frontend with SEO baseline and performance focus",
+              "Contact and conversion flow built for real buyer actions",
+              "Clean handover with content and maintenance guidance",
+            ],
+            outcomes: [
+              "Higher quality inbound leads",
+              "Stronger first-impression credibility",
+              "A maintainable web stack that supports growth",
+            ],
+            ctaLabel: "Start a website project",
+            ctaHref: localizePath(lang, "/contact"),
+          },
+          {
+            title: "Custom Software, Portals & SaaS MVPs",
+            value: "Purpose-built software that removes operational friction and scales with your team.",
+            audience: "Teams running recurring workflows through spreadsheets, inboxes, or disconnected tools.",
+            included: [
+              "Discovery, scope shaping, and feature prioritization",
+              "Production-ready architecture with clean roles and data model",
+              "Implementation of workflows, integrations, and operational dashboards",
+              "Testing, launch support, and practical roadmap for next iterations",
+            ],
+            outcomes: [
+              "Faster execution with less manual coordination",
+              "Clearer operational visibility for decision-making",
+              "A scalable foundation for future automation and features",
+            ],
+            ctaLabel: "Discuss a software solution",
+            ctaHref: localizePath(lang, "/contact"),
+          },
+          {
+            title: "IT Operations, Network & Technical Support",
+            value: "Reliable technical foundations so your team can operate with confidence.",
+            audience: "Businesses dealing with infrastructure instability, security risk, or unclear technical ownership.",
+            included: [
+              "Environment audit and prioritization of critical risk",
+              "Practical improvements for reliability, monitoring, and security",
+              "Documented operating procedures and response paths",
+              "Ongoing technical support for evolving operational needs",
+            ],
+            outcomes: [
+              "Fewer disruptions and faster issue resolution",
+              "Higher confidence in day-to-day operations",
+              "A stronger foundation for growth initiatives",
+            ],
+            ctaLabel: "Stabilize your IT operations",
+            ctaHref: localizePath(lang, "/contact"),
+          },
+        ],
+      },
+      audiences: {
+        kicker: "Who I Work With",
+        title: "Client profiles that benefit most from this engagement model",
+        intro: "If your situation looks like one of these, we are likely a strong fit.",
+        items: [
+          {
+            title: "Growing service businesses",
+            text: "You need a stronger digital presence and clearer internal systems to keep pace with growth.",
+          },
+          {
+            title: "B2B teams with operational bottlenecks",
+            text: "You are losing time to manual coordination and need fit-for-purpose software instead of tool sprawl.",
+          },
+          {
+            title: "Businesses with critical IT dependency",
+            text: "You need stronger reliability, security, and technical accountability in daily operations.",
+          },
+        ],
+      },
+      process: {
+        kicker: "How I Work",
+        title: "A simple, professional process built for predictable delivery",
+        intro: "You always know what is being built, why it is prioritized, and what happens next.",
+        steps: [
+          { phase: "Step 1", title: "Discovery & objectives", text: "We align on business goals, user context, technical constraints, and success metrics." },
+          { phase: "Step 2", title: "Roadmap & scope", text: "You receive a transparent plan covering scope, milestones, and key implementation decisions." },
+          { phase: "Step 3", title: "Build & feedback", text: "Execution happens in visible increments with regular updates and clear checkpoints." },
+          { phase: "Step 4", title: "Launch & optimization", text: "After release, we stabilize, optimize, and prioritize practical next improvements." },
+        ],
+      },
+      trust: {
+        kicker: "Why Clients Choose Me",
+        title: "What makes clients choose me as a long-term technology partner",
+        points: [
+          "Clear communication for founders, managers, and technical stakeholders",
+          "Strong engineering standards across architecture, code quality, and documentation",
+          "Reliable execution with realistic commitments and transparent delivery",
+          "Practical solutions designed for real business workflows",
+        ],
+      },
+      examples: {
+        kicker: "Use-Case Examples",
+        title: "Realistic solution examples across website, software, and operations",
+        intro: "These scenarios show how services are applied to practical business problems.",
+        cases: [
+          {
+            title: "Lead-focused website for a B2B service firm",
+            challenge: "The company had low-quality inbound opportunities despite an existing website.",
+            solution: "Repositioned messaging, rebuilt page architecture, and implemented a focused inquiry journey.",
+            result: "More relevant sales conversations and a stronger market-facing brand presence.",
+          },
+          {
+            title: "Client portal to reduce operational overhead",
+            challenge: "Requests and status updates were handled manually across email threads.",
+            solution: "Built a role-based portal with centralized workflows and clear status ownership.",
+            result: "Shorter turnaround times, lower coordination load, and better visibility.",
+          },
+          {
+            title: "Stabilization of a disruption-prone IT environment",
+            challenge: "Recurring technical incidents were impacting day-to-day business continuity.",
+            solution: "Delivered an environment audit, prioritized remediation, and monitoring-first operations routine.",
+            result: "Fewer incidents, higher reliability, and better-informed technical planning.",
+          },
+        ],
+      },
+      faq: {
+        kicker: "FAQ",
+        title: "Common questions before starting",
+        items: [
+          {
+            q: "Do you only take large projects?",
+            a: "No. I support focused engagements and larger multi-phase initiatives as long as goals and scope are clear.",
+          },
+          {
+            q: "How quickly can I get an initial assessment?",
+            a: "Usually within 24 to 48 hours after your inquiry, including practical recommendations for next steps.",
+          },
+          {
+            q: "Can you improve existing systems instead of rebuilding from scratch?",
+            a: "Yes. Many projects begin with audits, redesigns, or targeted optimization and only rebuild where necessary.",
+          },
+          {
+            q: "What does collaboration look like day to day?",
+            a: "You get a clear plan, consistent status updates, and direct communication with the person delivering the work.",
+          },
+        ],
+      },
+      finalCta: {
+        title: "Let’s define the highest-leverage next step for your business",
+        text: "Share your current situation and objective. You will get a structured first assessment and practical recommendation.",
+        primary: "Book your discovery call",
+        secondary: "Contact me",
+      },
+    };
 ---
 
-<section class="section">
+<Hero
+  kicker={content.hero.kicker}
+  title={content.hero.title}
+  copy={content.hero.copy}
+  primaryHref={localizePath(lang, "/contact")}
+  primaryLabel={content.hero.primaryLabel}
+  secondaryHref="#use-cases"
+  secondaryLabel={content.hero.secondaryLabel}
+  proofLabel={content.hero.proofLabel}
+  proofPoints={content.hero.proofPoints}
+  metrics={content.hero.metrics}
+/>
+
+<section class="section section--compact section-layered">
   <Container>
-    <Section kicker={t("services.kicker")} title={t("services.title")} intro={t("services.copy")} titleAs="h1" compact>
-      <div class="grid-3" style="align-items:stretch;">
-        {services.map((service) => <ServiceCard title={service.title} text={service.text} />)}
+    <Section kicker={content.services.kicker} title={content.services.title} intro={content.services.intro} compact>
+      <div class="service-detail-stack">
+        {content.services.items.map((service) => (
+          <ServiceDetailBlock
+            service={service}
+            audienceLabel={content.services.audienceLabel}
+            includedLabel={content.services.includedLabel}
+            outcomesLabel={content.services.outcomesLabel}
+          />
+        ))}
       </div>
     </Section>
   </Container>
 </section>
 
+<section class="section section--compact">
+  <Container>
+    <Section kicker={content.audiences.kicker} title={content.audiences.title} intro={content.audiences.intro} compact>
+      <div class="grid-3">
+        {content.audiences.items.map((item) => (
+          <Card class="reveal-up">
+            <h3 class="card-title">{item.title}</h3>
+            <p>{item.text}</p>
+          </Card>
+        ))}
+      </div>
+    </Section>
+  </Container>
+</section>
+
+<section class="section section--compact section-layered">
+  <Container>
+    <Section kicker={content.process.kicker} title={content.process.title} intro={content.process.intro} compact>
+      <div class="process-grid">
+        {content.process.steps.map((step) => (
+          <article class="process-card reveal-up">
+            <p class="process-phase">{step.phase}</p>
+            <h3>{step.title}</h3>
+            <p>{step.text}</p>
+          </article>
+        ))}
+      </div>
+    </Section>
+  </Container>
+</section>
+
+<section class="section section--compact">
+  <Container>
+    <Section kicker={content.trust.kicker} title={content.trust.title} compact>
+      <div class="section-surface outcomes-surface reveal-up">
+        <ul class="outcomes-list">
+          {content.trust.points.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </Section>
+  </Container>
+</section>
+
+<section id="use-cases" class="section section--compact section-layered">
+  <Container>
+    <Section kicker={content.examples.kicker} title={content.examples.title} intro={content.examples.intro} compact>
+      <div class="portfolio-grid">
+        {content.examples.cases.map((item) => (
+          <Card class="showcase-card reveal-up">
+            <h3 class="card-title">{item.title}</h3>
+            <div class="stack-sm mt-4">
+              <p><strong>{lang === "de" ? "Ausgangslage:" : "Challenge:"}</strong> {item.challenge}</p>
+              <p><strong>{lang === "de" ? "Lösung:" : "Solution:"}</strong> {item.solution}</p>
+              <p><strong>{lang === "de" ? "Ergebnis:" : "Result:"}</strong> {item.result}</p>
+            </div>
+          </Card>
+        ))}
+      </div>
+    </Section>
+  </Container>
+</section>
+
+<section class="section section--compact">
+  <Container>
+    <Section kicker={content.faq.kicker} title={content.faq.title} compact>
+      <div class="faq-list">
+        {content.faq.items.map((item) => (
+          <details class="faq-item reveal-up">
+            <summary>{item.q}</summary>
+            <p>{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </Section>
+  </Container>
+</section>
+
+<section class="section section--compact section-layered">
+  <Container>
+    <div class="section-surface final-cta-surface reveal-up">
+      <h2 class="page-title">{content.finalCta.title}</h2>
+      <p class="page-intro">{content.finalCta.text}</p>
+      <div class="hero-actions mt-5">
+        <Button href={localizePath(lang, "/contact")}>{content.finalCta.primary}</Button>
+        <Button href="mailto:basha.IT.Solution@gmail.com" variant="secondary">{content.finalCta.secondary}</Button>
+      </div>
+    </div>
+  </Container>
+</section>
+
 <ContactCTA
-  title={lang === "de" ? "Lassen Sie uns Ihr Projekt besprechen" : "Let's discuss your project"}
+  title={lang === "de" ? "Sie sind unsicher, welcher Service passt?" : "Not sure which service is the right fit?"}
   text={lang === "de"
-    ? "Sie suchen einen verlässlichen Partner für moderne IT-Lösungen? Schreiben Sie eine kurze Nachricht und wir klären die nächsten sinnvollen Schritte."
-    : "Need a reliable partner for modern IT delivery? Send a short message and we will define the most practical next steps."}
+    ? "Senden Sie kurz Ihre Situation — ich empfehle Ihnen den sinnvollsten Startpunkt ohne unnötigen Aufwand."
+    : "Send a brief overview of your goals and constraints, and I will recommend the most practical starting point."}
   href={localizePath(lang, "/contact")}
-  buttonLabel={lang === "de" ? "Projekt anfragen" : "Start your project"}
+  buttonLabel={lang === "de" ? "Empfehlung anfragen" : "Get a recommendation"}
 />
+
+<script>
+  const revealElements = document.querySelectorAll('.reveal-up');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.18 },
+    );
+
+    revealElements.forEach((element) => observer.observe(element));
+  } else {
+    revealElements.forEach((element) => element.classList.add('is-visible'));
+  }
+</script>
