@@ -1,8 +1,9 @@
 ---
 import Container from "../Container.astro";
 import Section from "../Section.astro";
+import Button from "../Button.astro";
 import { defaultLang, type Lang } from "../../i18n/ui";
-import { useTranslations } from "../../i18n/utils";
+import { localizePath, useTranslations } from "../../i18n/utils";
 
 interface Props { lang?: Lang }
 const { lang = defaultLang } = Astro.props;
@@ -12,10 +13,99 @@ const t = useTranslations(lang);
 <section class="section">
   <Container>
     <Section kicker={t("about.kicker")} title={t("about.title")} titleAs="h1" compact>
-      <div class="stack-md section-surface" style="max-width:72ch;">
-        <p>{t("about.p1")}</p>
-        <p>{t("about.p2")}</p>
+      <div class="grid-2">
+        <div class="stack-md section-surface content-column">
+          <p>{t("about.p1")}</p>
+          <p>{t("about.p2")}</p>
+        </div>
+
+        <aside class="section-surface stack-md">
+          <p class="section-kicker">{t("about.snapshot.kicker")}</p>
+          <h3>{t("about.snapshot.title")}</h3>
+          <ul class="outcomes-list">
+            <li>{t("about.snapshot.item1")}</li>
+            <li>{t("about.snapshot.item2")}</li>
+            <li>{t("about.snapshot.item3")}</li>
+            <li>{t("about.snapshot.item4")}</li>
+          </ul>
+        </aside>
       </div>
     </Section>
+  </Container>
+</section>
+
+<section class="section section-layered">
+  <Container>
+    <div class="section-header">
+      <p class="section-kicker">{t("about.principles.kicker")}</p>
+      <h2>{t("about.principles.title")}</h2>
+    </div>
+
+    <div class="grid-3">
+      <article class="card">
+        <h3 class="card-title">{t("about.principles.clarity.title")}</h3>
+        <p class="card-content">{t("about.principles.clarity.copy")}</p>
+      </article>
+
+      <article class="card">
+        <h3 class="card-title">{t("about.principles.execution.title")}</h3>
+        <p class="card-content">{t("about.principles.execution.copy")}</p>
+      </article>
+
+      <article class="card">
+        <h3 class="card-title">{t("about.principles.reliability.title")}</h3>
+        <p class="card-content">{t("about.principles.reliability.copy")}</p>
+      </article>
+    </div>
+  </Container>
+</section>
+
+<section class="section">
+  <Container>
+    <div class="section-header">
+      <p class="section-kicker">{t("about.focus.kicker")}</p>
+      <h2>{t("about.focus.title")}</h2>
+      <p class="page-intro">{t("about.focus.copy")}</p>
+    </div>
+
+    <div class="grid-2">
+      <article class="service-detail-card stack-sm">
+        <p class="service-detail-label">{t("about.focus.web.label")}</p>
+        <h3>{t("about.focus.web.title")}</h3>
+        <p>{t("about.focus.web.copy")}</p>
+      </article>
+
+      <article class="service-detail-card stack-sm">
+        <p class="service-detail-label">{t("about.focus.apps.label")}</p>
+        <h3>{t("about.focus.apps.title")}</h3>
+        <p>{t("about.focus.apps.copy")}</p>
+      </article>
+
+      <article class="service-detail-card stack-sm">
+        <p class="service-detail-label">{t("about.focus.saas.label")}</p>
+        <h3>{t("about.focus.saas.title")}</h3>
+        <p>{t("about.focus.saas.copy")}</p>
+      </article>
+
+      <article class="service-detail-card stack-sm">
+        <p class="service-detail-label">{t("about.focus.systems.label")}</p>
+        <h3>{t("about.focus.systems.title")}</h3>
+        <p>{t("about.focus.systems.copy")}</p>
+      </article>
+    </div>
+  </Container>
+</section>
+
+<section class="section">
+  <Container>
+    <div class="section-surface final-cta-surface stack-md">
+      <p class="section-kicker">{t("about.cta.kicker")}</p>
+      <h2 class="page-title">{t("about.cta.title")}</h2>
+      <p class="page-intro">{t("about.cta.copy")}</p>
+      <div class="hero-actions">
+        <Button href={localizePath(lang, "/contact")}>{t("about.cta.primary")}</Button>
+        <Button href={localizePath(lang, "/services")} variant="secondary">{t("about.cta.secondary")}</Button>
+      </div>
+    </div>
   </Container>
 </section>

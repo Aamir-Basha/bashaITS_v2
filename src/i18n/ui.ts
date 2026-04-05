@@ -51,10 +51,72 @@ export const ui: Record<Lang, TranslationDict> = {
         title: "Services | Basha IT Solutions",
         description: "Explore network, website, app, SaaS, and technical support services.",
       },
-      about: {
-        title: "About | Basha IT Solutions",
-        description: "Learn more about Basha IT Solutions and the focus on clear, practical technology.",
-      },
+about: {
+  kicker: "About",
+  title: "Clear technology, practical execution, real results",
+  p1: "Basha IT Solutions focuses on building modern digital solutions without unnecessary complexity. The goal is simple: create systems that are useful, professional, and aligned with real needs.",
+  p2: "From network support to websites, apps, and SaaS development, the work is centered around trust, clarity, and practical outcomes that clients can actually use.",
+
+  snapshot: {
+    kicker: "Company profile",
+    title: "Built for modern digital needs",
+    item1: "Websites and platforms with clear business purpose",
+    item2: "Apps and SaaS tools designed for real workflows",
+    item3: "Technical systems support with practical focus",
+    item4: "Structured implementation without unnecessary complexity",
+  },
+
+  principles: {
+    kicker: "Principles",
+    title: "How the work is approached",
+    clarity: {
+      title: "Clarity first",
+      copy: "Solutions should be understandable, maintainable, and aligned with what the client actually needs."
+    },
+    execution: {
+      title: "Practical execution",
+      copy: "The focus is on useful delivery, clean structure, and systems that work in real conditions."
+    },
+    reliability: {
+      title: "Reliable by design",
+      copy: "Strong foundations, thoughtful structure, and controlled complexity create more trustworthy outcomes."
+    }
+  },
+
+  focus: {
+    kicker: "Focus areas",
+    title: "What Basha IT Solutions works on",
+    copy: "The work combines modern software, digital delivery, and technical problem solving.",
+    web: {
+      label: "Web",
+      title: "Professional websites",
+      copy: "Modern, structured websites built to communicate trust and support real business goals."
+    },
+    apps: {
+      label: "Apps",
+      title: "Application development",
+      copy: "Custom applications designed around usability, clarity, and practical value."
+    },
+    saas: {
+      label: "SaaS",
+      title: "SaaS systems",
+      copy: "Scalable digital products and internal tools built with maintainability and real workflows in mind."
+    },
+    systems: {
+      label: "Systems",
+      title: "Technical systems support",
+      copy: "Support for networks, technical setup, and digital infrastructure where clarity and reliability matter."
+    }
+  },
+
+  cta: {
+    kicker: "Next step",
+    title: "Looking for a clear and capable technology partner?",
+    copy: "Whether the need is a website, application, SaaS platform, or technical system support, the goal is always the same: useful solutions, built well.",
+    primary: "Start a Project",
+    secondary: "Explore Services"
+  }
+},
       contact: {
         title: "Contact | Basha IT Solutions",
         description: "Get in touch to discuss networks, websites, apps, SaaS, or other IT solutions.",
