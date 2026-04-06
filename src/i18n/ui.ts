@@ -167,6 +167,63 @@ about: {
       title: "Clear technology, practical execution, real results",
       p1: "Basha IT Solutions focuses on building modern digital solutions without unnecessary complexity. The goal is simple: create systems that are useful, professional, and aligned with real needs.",
       p2: "From network support to websites, apps, and SaaS development, the work is centered around trust, clarity, and practical outcomes that clients can actually use.",
+      snapshot: {
+        kicker: "Company Snapshot",
+        title: "A focused technology partner for modern operations",
+        copy: "Basha IT Solutions supports organizations that need dependable digital systems, clear communication, and practical implementation from planning through delivery.",
+        item1: "Based in Braunschweig, serving projects with local context and remote delivery",
+        item2: "Work across websites, applications, SaaS products, and technical systems",
+        item3: "Structured execution with realistic scope, timelines, and priorities",
+        item4: "Long-term maintainability as a default requirement, not an afterthought",
+      },
+      principles: {
+        kicker: "Core Principles",
+        title: "How decisions are made",
+        clarity: {
+          title: "Clarity over complexity",
+          copy: "Architecture and communication stay transparent so teams can make sound technical and business decisions.",
+        },
+        execution: {
+          title: "Practical execution",
+          copy: "Solutions are designed to perform in day-to-day operations, not only in presentations or prototypes.",
+        },
+        reliability: {
+          title: "Reliability as standard",
+          copy: "Stable foundations, controlled change, and disciplined delivery reduce risk and improve long-term value.",
+        },
+      },
+      focus: {
+        kicker: "Focus Areas",
+        title: "Where Basha IT Solutions delivers value",
+        copy: "The service portfolio combines software development and technical systems work to support real business workflows.",
+        web: {
+          label: "Websites",
+          title: "Professional web presence",
+          copy: "Websites and web platforms built for credibility, performance, and clear user journeys.",
+        },
+        apps: {
+          label: "Apps",
+          title: "Application development",
+          copy: "Custom applications with clean interfaces, maintainable code, and direct operational relevance.",
+        },
+        saas: {
+          label: "SaaS",
+          title: "SaaS and platform products",
+          copy: "Scalable products and internal platforms developed with robust structure and measurable business purpose.",
+        },
+        systems: {
+          label: "Systems",
+          title: "Technical systems and infrastructure",
+          copy: "Support for networks and technical environments where uptime, security, and consistency are essential.",
+        },
+      },
+      cta: {
+        kicker: "Start a Conversation",
+        title: "Planning a project with technical depth?",
+        copy: "If you need a capable partner for a website, application, SaaS solution, or technical systems work, let’s define a clear scope and move forward with confidence.",
+        primary: "Start a Project",
+        secondary: "Contact Basha IT Solutions",
+      },
     },
     contact: {
       kicker: "Contact",
@@ -276,6 +333,63 @@ about: {
       title: "Klare Technologie, praxisnahe Umsetzung, messbare Ergebnisse",
       p1: "Basha IT Solutions entwickelt moderne digitale Lösungen ohne unnötige Komplexität. Das Ziel ist klar: Systeme schaffen, die nützlich, professionell und an realen Anforderungen ausgerichtet sind.",
       p2: "Von Netzwerk-Support bis hin zu Webseiten, Apps und SaaS-Entwicklung stehen Vertrauen, Verständlichkeit und praktische Ergebnisse im Mittelpunkt.",
+      snapshot: {
+        kicker: "Unternehmensprofil",
+        title: "Ein fokussierter Technologiepartner für moderne Abläufe",
+        copy: "Basha IT Solutions unterstützt Organisationen, die verlässliche digitale Systeme, klare Kommunikation und praxisnahe Umsetzung von der Planung bis zur Lieferung benötigen.",
+        item1: "Standort Braunschweig mit regionalem Verständnis und effizienter Remote-Umsetzung",
+        item2: "Leistungsschwerpunkte in Webseiten, Anwendungen, SaaS-Produkten und technischen Systemen",
+        item3: "Strukturierte Umsetzung mit realistischen Umfängen, Zeitplänen und Prioritäten",
+        item4: "Langfristige Wartbarkeit als Grundanforderung statt nachträglicher Ergänzung",
+      },
+      principles: {
+        kicker: "Leitprinzipien",
+        title: "Wie Entscheidungen getroffen werden",
+        clarity: {
+          title: "Klarheit vor Komplexität",
+          copy: "Architektur und Kommunikation bleiben nachvollziehbar, damit Teams fundierte technische und geschäftliche Entscheidungen treffen können.",
+        },
+        execution: {
+          title: "Praxisnahe Umsetzung",
+          copy: "Lösungen werden für den zuverlässigen Alltagseinsatz entwickelt, nicht nur für Präsentationen oder Prototypen.",
+        },
+        reliability: {
+          title: "Zuverlässigkeit als Standard",
+          copy: "Stabile Grundlagen, kontrollierte Änderungen und disziplinierte Lieferung reduzieren Risiken und stärken den langfristigen Nutzen.",
+        },
+      },
+      focus: {
+        kicker: "Fokusbereiche",
+        title: "Wo Basha IT Solutions Mehrwert schafft",
+        copy: "Das Leistungsportfolio verbindet Softwareentwicklung mit technischer Systemarbeit für reale Geschäftsprozesse.",
+        web: {
+          label: "Webseiten",
+          title: "Professionelle Webpräsenz",
+          copy: "Webseiten und Webplattformen mit hoher Glaubwürdigkeit, solider Performance und klaren Nutzerwegen.",
+        },
+        apps: {
+          label: "Apps",
+          title: "Anwendungsentwicklung",
+          copy: "Individuelle Anwendungen mit klaren Oberflächen, wartbarem Code und direktem operativem Nutzen.",
+        },
+        saas: {
+          label: "SaaS",
+          title: "SaaS- und Plattformlösungen",
+          copy: "Skalierbare Produkte und interne Plattformen mit robuster Struktur und messbarem Geschäftszweck.",
+        },
+        systems: {
+          label: "Systeme",
+          title: "Technische Systeme und Infrastruktur",
+          copy: "Unterstützung für Netzwerke und technische Umgebungen, in denen Verfügbarkeit, Sicherheit und Konsistenz entscheidend sind.",
+        },
+      },
+      cta: {
+        kicker: "Nächster Schritt",
+        title: "Sie planen ein Projekt mit technischer Tiefe?",
+        copy: "Wenn Sie einen verlässlichen Partner für Webseite, Anwendung, SaaS-Lösung oder technische Systemarbeit suchen, definieren wir gemeinsam einen klaren Umfang und setzen zielgerichtet um.",
+        primary: "Projekt starten",
+        secondary: "Basha IT Solutions kontaktieren",
+      },
     },
     contact: {
       kicker: "Kontakt",
