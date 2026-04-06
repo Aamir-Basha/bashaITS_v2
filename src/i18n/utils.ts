@@ -49,6 +49,10 @@ export function localizePath(lang: Lang, path: string): string {
   return normalizedPath === "/" ? `/${lang}/` : `/${lang}${normalizedPath}`;
 }
 
+export function localizeHomeContactFormPath(lang: Lang): string {
+  return `${localizePath(lang, "/")}#contact-form`;
+}
+
 export function switchLocalePath(pathname: string, targetLang: Lang): string {
   const normalized = pathname === "" ? "/" : pathname;
   const segments = normalized.split("/").filter(Boolean);

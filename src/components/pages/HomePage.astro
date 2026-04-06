@@ -7,7 +7,7 @@ import Container from "../Container.astro";
 import Hero from "../Hero.astro";
 import Section from "../Section.astro";
 import { defaultLang, type Lang } from "../../i18n/ui";
-import { localizePath, useTranslations } from "../../i18n/utils";
+import { localizeHomeContactFormPath, localizePath, useTranslations } from "../../i18n/utils";
 
 interface Props {
   lang?: Lang;
@@ -356,7 +356,7 @@ const contactMethods = lang === "de"
   copy={lang === "de"
     ? "Ich entwickle digitale Lösungen für Unternehmen, die mehr als nur eine schöne Oberfläche wollen: klare Prozesse, starke Nutzererlebnisse und belastbare Technik als Wettbewerbsvorteil."
     : "I build digital solutions for businesses that need more than a polished interface: clear processes, conversion-ready user experiences, and reliable technology that supports real growth."}
-  primaryHref={localizePath(lang, "/contact")}
+  primaryHref={localizeHomeContactFormPath(lang)}
   primaryLabel={lang === "de" ? "Kostenlose Erstberatung" : "Book a Discovery Call"}
   secondaryHref={localizePath(lang, "/services")}
   secondaryLabel={lang === "de" ? "Services ansehen" : "View Services"}
@@ -496,7 +496,7 @@ const contactMethods = lang === "de"
   </Container>
 </section>
 
-<section class="section section--compact">
+<section id="contact-form" class="section section--compact">
   <Container>
     <div class="grid-2" style="align-items:start;">
       <div class="stack-md section-surface reveal-up">
@@ -591,7 +591,7 @@ const contactMethods = lang === "de"
   text={lang === "de"
     ? "Lassen Sie uns in einem kurzen Gespräch klären, welche Lösung den größten geschäftlichen Hebel für Sie bietet."
     : "Let’s identify the highest-leverage next step for your website, software stack, or IT operations in a short discovery call."}
-  href={localizePath(lang, "/contact")}
+  href={localizeHomeContactFormPath(lang)}
   buttonLabel={lang === "de" ? "Strategiegespräch starten" : "Start Your Strategy Call"}
 />
 

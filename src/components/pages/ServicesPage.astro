@@ -7,7 +7,7 @@ import Hero from "../Hero.astro";
 import Section from "../Section.astro";
 import ServiceDetailBlock from "../ServiceDetailBlock.astro";
 import { defaultLang, type Lang } from "../../i18n/ui";
-import { localizePath } from "../../i18n/utils";
+import { localizeHomeContactFormPath, localizePath } from "../../i18n/utils";
 
 interface Props { lang?: Lang }
 const { lang = defaultLang } = Astro.props;
@@ -56,7 +56,7 @@ const content = lang === "de"
               "Ein wartbarer Web-Stack für zukünftiges Wachstum",
             ],
             ctaLabel: "Website-Projekt starten",
-            ctaHref: localizePath(lang, "/contact"),
+            ctaHref: localizeHomeContactFormPath(lang),
           },
           {
             title: "Custom Software, Portale & SaaS MVPs",
@@ -74,7 +74,7 @@ const content = lang === "de"
               "Skalierbare Grundlage für neue Features und Automationen",
             ],
             ctaLabel: "Software-Lösung besprechen",
-            ctaHref: localizePath(lang, "/contact"),
+            ctaHref: localizeHomeContactFormPath(lang),
           },
           {
             title: "IT Operations, Netzwerk & technischer Support",
@@ -92,7 +92,7 @@ const content = lang === "de"
               "Belastbare technische Basis für Wachstumsvorhaben",
             ],
             ctaLabel: "IT-Betrieb stabilisieren",
-            ctaHref: localizePath(lang, "/contact"),
+            ctaHref: localizeHomeContactFormPath(lang),
           },
         ],
       },
@@ -233,7 +233,7 @@ const content = lang === "de"
               "A maintainable web stack that supports growth",
             ],
             ctaLabel: "Start a website project",
-            ctaHref: localizePath(lang, "/contact"),
+            ctaHref: localizeHomeContactFormPath(lang),
           },
           {
             title: "Custom Software, Portals & SaaS MVPs",
@@ -251,7 +251,7 @@ const content = lang === "de"
               "A scalable foundation for future automation and features",
             ],
             ctaLabel: "Discuss a software solution",
-            ctaHref: localizePath(lang, "/contact"),
+            ctaHref: localizeHomeContactFormPath(lang),
           },
           {
             title: "IT Operations, Network & Technical Support",
@@ -269,7 +269,7 @@ const content = lang === "de"
               "A stronger foundation for growth initiatives",
             ],
             ctaLabel: "Stabilize your IT operations",
-            ctaHref: localizePath(lang, "/contact"),
+            ctaHref: localizeHomeContactFormPath(lang),
           },
         ],
       },
@@ -373,7 +373,7 @@ const content = lang === "de"
   kicker={content.hero.kicker}
   title={content.hero.title}
   copy={content.hero.copy}
-  primaryHref={localizePath(lang, "/contact")}
+  primaryHref={localizeHomeContactFormPath(lang)}
   primaryLabel={content.hero.primaryLabel}
   secondaryHref="#use-cases"
   secondaryLabel={content.hero.secondaryLabel}
@@ -482,7 +482,7 @@ const content = lang === "de"
       <h2 class="page-title">{content.finalCta.title}</h2>
       <p class="page-intro">{content.finalCta.text}</p>
       <div class="hero-actions mt-5">
-        <Button href={localizePath(lang, "/contact")}>{content.finalCta.primary}</Button>
+        <Button href={localizeHomeContactFormPath(lang)}>{content.finalCta.primary}</Button>
         <Button href="mailto:basha.IT.Solution@gmail.com" variant="secondary">{content.finalCta.secondary}</Button>
       </div>
     </div>
@@ -494,7 +494,7 @@ const content = lang === "de"
   text={lang === "de"
     ? "Senden Sie kurz Ihre Situation — ich empfehle Ihnen den sinnvollsten Startpunkt ohne unnötigen Aufwand."
     : "Send a brief overview of your goals and constraints, and I will recommend the most practical starting point."}
-  href={localizePath(lang, "/contact")}
+  href={localizeHomeContactFormPath(lang)}
   buttonLabel={lang === "de" ? "Empfehlung anfragen" : "Get a recommendation"}
 />
 
