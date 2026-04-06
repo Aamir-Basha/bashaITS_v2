@@ -2,7 +2,7 @@
 import Button from "./Button.astro";
 import Container from "./Container.astro";
 import { defaultLang, languages, type Lang } from "../i18n/ui";
-import { localizePath, switchLocalePath, useTranslations } from "../i18n/utils";
+import { localizeHomeContactFormPath, localizePath, switchLocalePath, useTranslations } from "../i18n/utils";
 
 interface Props {
   lang?: Lang;
@@ -79,14 +79,14 @@ const enPath = switchLocalePath(currentPath, "en");
           </a>
         </div>
 
-        <Button href={localizePath(lang, "/contact")}>{t("nav.cta")}</Button>
+        <Button href={localizeHomeContactFormPath(lang)}>{t("nav.cta")}</Button>
       </div>
 
       <div class="mobile-actions mobile-actions--future">
         <Button href={lang === "en" ? dePath : enPath} variant="secondary">
           {lang === "en" ? "DE" : "EN"}
         </Button>
-        <Button href={localizePath(lang, "/contact")} variant="secondary">
+        <Button href={localizeHomeContactFormPath(lang)} variant="secondary">
           {t("nav.mobileCta")}
         </Button>
       </div>

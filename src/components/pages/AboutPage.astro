@@ -3,7 +3,7 @@ import Container from "../Container.astro";
 import Section from "../Section.astro";
 import Button from "../Button.astro";
 import { defaultLang, type Lang } from "../../i18n/ui";
-import { localizePath, useTranslations } from "../../i18n/utils";
+import { localizeHomeContactFormPath, localizePath, useTranslations } from "../../i18n/utils";
 
 interface Props { lang?: Lang }
 const { lang = defaultLang } = Astro.props;
@@ -103,7 +103,7 @@ const t = useTranslations(lang);
       <h2 class="page-title">{t("about.cta.title")}</h2>
       <p class="page-intro">{t("about.cta.copy")}</p>
       <div class="hero-actions">
-        <Button href={localizePath(lang, "/contact")}>{t("about.cta.primary")}</Button>
+        <Button href={localizeHomeContactFormPath(lang)}>{t("about.cta.primary")}</Button>
         <Button href={localizePath(lang, "/services")} variant="secondary">{t("about.cta.secondary")}</Button>
       </div>
     </div>
